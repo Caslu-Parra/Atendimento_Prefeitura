@@ -14,5 +14,14 @@ namespace Atendimento
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            JanelaOS janelaOS = new JanelaOS();
+
+            this.Hide();
+            janelaOS.ShowDialog();
+            this.Show();
+        }
     }
 }

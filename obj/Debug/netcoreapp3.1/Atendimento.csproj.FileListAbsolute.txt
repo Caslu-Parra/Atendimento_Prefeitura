@@ -1,0 +1,17 @@
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.exe
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.deps.json
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.runtimeconfig.json
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.runtimeconfig.dev.json
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.dll
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\Atendimento.pdb
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.csprojAssemblyReference.cache
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.Form1.resources
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.csproj.GenerateResource.cache
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.AssemblyInfoInputs.cache
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.AssemblyInfo.cs
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.csproj.CoreCompileInputs.cache
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.dll
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.pdb
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.genruntimeconfig.cache
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.JanelaOS.resources
+C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.Properties.Resources.resources
