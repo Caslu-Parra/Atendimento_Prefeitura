@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj": {}
+    "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj": {
+    "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
+        "projectUniqueName": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
         "projectName": "Atendimento",
-        "projectPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
-        "packagesPath": "C:\\Users\\lparra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\obj\\",
+        "projectPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
+        "packagesPath": "C:\\Users\\renat\\.nuget\\packages\\",
+        "outputPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lparra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\renat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "SQLitePCLRaw.core": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.113.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

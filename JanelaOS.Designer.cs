@@ -31,18 +31,18 @@ namespace Atendimento
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaOS));
             this.gbFiltro = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblPesquisa = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.rbtnPatrimonio = new System.Windows.Forms.RadioButton();
             this.rbtnData = new System.Windows.Forms.RadioButton();
             this.rbtnSolicitante = new System.Windows.Forms.RadioButton();
-            this.rbtnTecnico = new System.Windows.Forms.RadioButton();
             this.rbtnID = new System.Windows.Forms.RadioButton();
+            this.rbtnTecnico = new System.Windows.Forms.RadioButton();
+            this.rbtnPatrimonio = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.dgvOSList = new System.Windows.Forms.DataGridView();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.gbFiltro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOSList)).BeginInit();
             this.SuspendLayout();
             // 
             // gbFiltro
@@ -59,58 +59,6 @@ namespace Atendimento
             this.gbFiltro.TabIndex = 1;
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Procurar Por";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(297, 424);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 35);
-            this.textBox1.TabIndex = 2;
-            // 
-            // lblPesquisa
-            // 
-            this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesquisa.Location = new System.Drawing.Point(300, 398);
-            this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(90, 25);
-            this.lblPesquisa.TabIndex = 3;
-            this.lblPesquisa.Text = "Pesquisa:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 79);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(550, 305);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNovo.BackgroundImage")));
-            this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnNovo.Location = new System.Drawing.Point(12, 12);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(67, 61);
-            this.btnNovo.TabIndex = 5;
-            this.btnNovo.UseVisualStyleBackColor = true;
-            // 
-            // rbtnPatrimonio
-            // 
-            this.rbtnPatrimonio.AutoSize = true;
-            this.rbtnPatrimonio.Location = new System.Drawing.Point(11, 54);
-            this.rbtnPatrimonio.Name = "rbtnPatrimonio";
-            this.rbtnPatrimonio.Size = new System.Drawing.Size(103, 24);
-            this.rbtnPatrimonio.TabIndex = 6;
-            this.rbtnPatrimonio.Text = "Patrimônio";
-            this.rbtnPatrimonio.UseVisualStyleBackColor = true;
             // 
             // rbtnData
             // 
@@ -132,16 +80,6 @@ namespace Atendimento
             this.rbtnSolicitante.Text = "Solicitante";
             this.rbtnSolicitante.UseVisualStyleBackColor = true;
             // 
-            // rbtnTecnico
-            // 
-            this.rbtnTecnico.AutoSize = true;
-            this.rbtnTecnico.Location = new System.Drawing.Point(120, 54);
-            this.rbtnTecnico.Name = "rbtnTecnico";
-            this.rbtnTecnico.Size = new System.Drawing.Size(78, 24);
-            this.rbtnTecnico.TabIndex = 9;
-            this.rbtnTecnico.Text = "Técnico";
-            this.rbtnTecnico.UseVisualStyleBackColor = true;
-            // 
             // rbtnID
             // 
             this.rbtnID.AutoSize = true;
@@ -153,6 +91,70 @@ namespace Atendimento
             this.rbtnID.TabStop = true;
             this.rbtnID.Text = "Número ID";
             this.rbtnID.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTecnico
+            // 
+            this.rbtnTecnico.AutoSize = true;
+            this.rbtnTecnico.Location = new System.Drawing.Point(120, 54);
+            this.rbtnTecnico.Name = "rbtnTecnico";
+            this.rbtnTecnico.Size = new System.Drawing.Size(78, 24);
+            this.rbtnTecnico.TabIndex = 9;
+            this.rbtnTecnico.Text = "Técnico";
+            this.rbtnTecnico.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPatrimonio
+            // 
+            this.rbtnPatrimonio.AutoSize = true;
+            this.rbtnPatrimonio.Location = new System.Drawing.Point(11, 54);
+            this.rbtnPatrimonio.Name = "rbtnPatrimonio";
+            this.rbtnPatrimonio.Size = new System.Drawing.Size(103, 24);
+            this.rbtnPatrimonio.TabIndex = 6;
+            this.rbtnPatrimonio.Text = "Patrimônio";
+            this.rbtnPatrimonio.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(297, 424);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(262, 35);
+            this.textBox1.TabIndex = 2;
+            // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPesquisa.Location = new System.Drawing.Point(300, 398);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(90, 25);
+            this.lblPesquisa.TabIndex = 3;
+            this.lblPesquisa.Text = "Pesquisa:";
+            // 
+            // dgvOSList
+            // 
+            this.dgvOSList.AllowUserToAddRows = false;
+            this.dgvOSList.AllowUserToDeleteRows = false;
+            this.dgvOSList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dgvOSList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvOSList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOSList.Location = new System.Drawing.Point(12, 79);
+            this.dgvOSList.Name = "dgvOSList";
+            this.dgvOSList.ReadOnly = true;
+            this.dgvOSList.RowTemplate.Height = 25;
+            this.dgvOSList.Size = new System.Drawing.Size(991, 305);
+            this.dgvOSList.TabIndex = 4;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNovo.BackgroundImage")));
+            this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnNovo.Location = new System.Drawing.Point(12, 12);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(67, 61);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnEditar
             // 
@@ -169,10 +171,10 @@ namespace Atendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 494);
+            this.ClientSize = new System.Drawing.Size(1169, 494);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvOSList);
             this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gbFiltro);
@@ -181,7 +183,7 @@ namespace Atendimento
             this.Load += new System.EventHandler(this.JanelaOS_Load);
             this.gbFiltro.ResumeLayout(false);
             this.gbFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOSList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +194,7 @@ namespace Atendimento
         private System.Windows.Forms.GroupBox gbFiltro;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblPesquisa;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOSList;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.RadioButton rbtnPatrimonio;
         private System.Windows.Forms.RadioButton rbtnData;
