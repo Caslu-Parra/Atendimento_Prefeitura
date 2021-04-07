@@ -34,15 +34,18 @@ namespace Atendimento.db
                 this.Conectar();
                 var cmd = this.conexao.CreateCommand();
                 // Comando SQL:
-                cmd.CommandText = "CREATE TABLE 'os' (" +
-                "'id'    TEXT NOT NULL UNIQUE, " +
-                "'tecnico'   TEXT NOT NULL, " +
-                "'solicitante'   TEXT NOT NULL, " +
-                "'setor' TEXT NOT NULL, " +
-                "'data'  TEXT NOT NULL, " +
-                "'descricao' TEXT NOT NULL, " +
-                "'solucao'   TEXT " +
+                cmd.CommandText = "CREATE TABLE " + "os" + "(" +
+                "id" + "   TEXT NOT NULL," +
+                "tecnico" + "   TEXT NOT NULL," +
+                "data" + "   TEXT NOT NULL," +
+                "solicitante" + "  TEXT NOT NULL," +
+                "departamento" + "  TEXT NOT NULL," +
+                "patrimonio" + "  TEXT NOT NULL," +
+                "descricao" + "  TEXT NOT NULL," +
+                "solucao" + "  TEXT," +
                 "PRIMARY KEY('id'));";
+
+
 
                 // Executar o comando:
                 cmd.ExecuteNonQuery();

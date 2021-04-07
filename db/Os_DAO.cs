@@ -31,5 +31,43 @@ namespace Atendimento.db
             banco.Desconectar();
             return tabela;
         }
+
+        public static bool cadastrar(Info info)
+        {
+            // Instanciar e conectar ao banco:
+            Banco banco = new Banco();
+            //try
+            //{
+                banco.Conectar();
+                // Criar o objeto SQLiteCommand:
+                var cmd = banco.conexao.CreateCommand();
+                // Definir qual comando DML (Insert - Delete - Update) será executado:
+                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, departamento, patrimonio, descricao, solucao) " +
+                    " VALUES (" + info.Id + "," +
+                     info.Tecnico + "," +
+                     info.Data + "," +
+                     info.Solicitante + "," +
+                     info.Departamento + "," +
+                     info.Patrimonio + "," +
+                     info.Descricao + "," +
+                     info.Solucao + ");";
+
+                // Executar:
+                cmd.ExecuteNonQuery();
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou até aqui é pq deu certo!
+                // Retornar true:
+                return false;
+            //}
+            //catch
+            //{
+            //    // Desconectar
+            //    banco.Desconectar();
+            //    // Se chegou aqui é pq deu algum erro!
+            //    // Retornar false:
+            //    return false;
+            //}
+        }
     }
 }
