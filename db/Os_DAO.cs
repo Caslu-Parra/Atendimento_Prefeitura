@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Atendimento.db
 {
@@ -36,21 +37,24 @@ namespace Atendimento.db
         {
             // Instanciar e conectar ao banco:
             Banco banco = new Banco();
-            //try
-            //{
+            try
+            {
                 banco.Conectar();
                 // Criar o objeto SQLiteCommand:
                 var cmd = banco.conexao.CreateCommand();
+
                 // Definir qual comando DML (Insert - Delete - Update) será executado:
-                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, departamento, patrimonio, descricao, solucao) " +
-                    " VALUES (" + info.Id + "," +
-                     info.Tecnico + "," +
-                     info.Data + "," +
-                     info.Solicitante + "," +
-                     info.Departamento + "," +
-                     info.Patrimonio + "," +
-                     info.Descricao + "," +
-                     info.Solucao + ");";
+                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @solicitante, @departamento, @patrimonio, @descricao, @solucao)";
+
+                // Definir a substituição dos parametros:
+                cmd.Parameters.AddWithValue("@id", info.Id);
+                cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
+                cmd.Parameters.AddWithValue("@data", info.Data);
+                cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                cmd.Parameters.AddWithValue("@departamento", info.Departamento);
+                cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
+                cmd.Parameters.AddWithValue("@descricao", info.Descricao);
+                cmd.Parameters.AddWithValue("@solucao", info.Solucao);
 
                 // Executar:
                 cmd.ExecuteNonQuery();
@@ -58,16 +62,18 @@ namespace Atendimento.db
                 banco.Desconectar();
                 // Se chegou até aqui é pq deu certo!
                 // Retornar true:
+
+                return true;
+            }
+            catch
+            {
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou aqui é pq deu algum erro!
+                // Retornar false:
                 return false;
-            //}
-            //catch
-            //{
-            //    // Desconectar
-            //    banco.Desconectar();
-            //    // Se chegou aqui é pq deu algum erro!
-            //    // Retornar false:
-            //    return false;
-            //}
+            }
+
         }
     }
 }

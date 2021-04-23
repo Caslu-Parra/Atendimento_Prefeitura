@@ -54,6 +54,7 @@ namespace Atendimento
             Info info = new Info();
             info.Tecnico = txbTecnico.Text;
             info.Data = txbData.Text;
+            info.Solicitante = txbSolicitante.Text;
             info.Departamento = cbDept.SelectedIndex;
             info.Descricao = txbDescricao.Text;
             info.Patrimonio = txbPatrimonio.Text;
