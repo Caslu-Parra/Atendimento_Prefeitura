@@ -51,17 +51,25 @@ namespace Atendimento
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Info info = new Info();
-            info.Tecnico = txbTecnico.Text;
-            info.Data = txbData.Text;
-            info.Solicitante = txbSolicitante.Text;
-            info.Departamento = cbDept.SelectedIndex;
-            info.Descricao = txbDescricao.Text;
-            info.Patrimonio = txbPatrimonio.Text;
-            info.Solucao = txbSolucao.Text;
-            info.Id = txbID.Text;
-            // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
-            var resultado = db.Os_DAO.cadastrar(info);
+            var indexDept = cbDept.SelectedIndex.ToString();
+
+            var resultado = false;
+            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && indexDept.Length != 2)
+            {
+                Info info = new Info();
+                info.Tecnico = txbTecnico.Text.ToUpper();
+                info.Ramal = txbRamal.Text;
+                info.Data = txbData.Text;
+                info.Solicitante = txbSolicitante.Text.ToUpper();
+                info.Departamento = cbDept.SelectedItem.ToString().ToUpper();
+                info.Descricao = txbDescricao.Text;
+                info.Patrimonio = txbPatrimonio.Text;
+                info.Solucao = txbSolucao.Text;
+                info.Id = txbID.Text;
+                // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
+                resultado = db.Os_DAO.cadastrar(info);
+            }
+            
             if (resultado == true)
             {
                 MessageBox.Show("Funcionário cadastrado com sucesso!");

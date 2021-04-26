@@ -44,13 +44,14 @@ namespace Atendimento.db
                 var cmd = banco.conexao.CreateCommand();
 
                 // Definir qual comando DML (Insert - Delete - Update) será executado:
-                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @solicitante, @departamento, @patrimonio, @descricao, @solucao)";
+                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
 
                 // Definir a substituição dos parametros:
                 cmd.Parameters.AddWithValue("@id", info.Id);
                 cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
                 cmd.Parameters.AddWithValue("@data", info.Data);
                 cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                cmd.Parameters.AddWithValue("@ramal", info.Ramal);
                 cmd.Parameters.AddWithValue("@departamento", info.Departamento);
                 cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
                 cmd.Parameters.AddWithValue("@descricao", info.Descricao);

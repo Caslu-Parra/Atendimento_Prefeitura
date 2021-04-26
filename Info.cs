@@ -7,8 +7,9 @@ namespace Atendimento
     class Info
     {
         public string Tecnico { get; set; }
-        public int Departamento { get; set; }
+        public string Departamento { get; set; }
         public string Data { get; set; }
+        public string Ramal { get; set; }
         public string Id { get; set; }
         public string Solicitante { get; set; }
         public string Patrimonio { get; set; }

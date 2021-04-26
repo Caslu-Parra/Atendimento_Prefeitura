@@ -15,11 +15,15 @@ namespace Atendimento
         {
             InitializeComponent();
         }
+        private void atualizaTabela()
+        {
+            dgvOSList.DataSource = db.Os_DAO.listar();
+        }
        
 
         private void JanelaOS_Load(object sender, EventArgs e)
         {
-            dgvOSList.DataSource = db.Os_DAO.listar();
+            atualizaTabela();
             //btnNovo.Image = Image.FromFile(@"C:\Users\lparra\Downloads\doc.png");
             //btnNovo.ImageAlign = ContentAlignment.MiddleRight;
             //btnNovo.TextAlign = ContentAlignment.MiddleLeft;
@@ -31,6 +35,7 @@ namespace Atendimento
             this.Hide();
             TelaAddOS janelaAddOS = new TelaAddOS();
             janelaAddOS.ShowDialog();
+            dgvOSList.DataSource = db.Os_DAO.listar();
             this.Show();
 
         }

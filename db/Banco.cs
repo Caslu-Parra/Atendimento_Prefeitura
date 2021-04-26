@@ -39,8 +39,9 @@ namespace Atendimento.db
                 "tecnico" + "   TEXT NOT NULL," +
                 "data" + "   TEXT NOT NULL," +
                 "solicitante" + "  TEXT NOT NULL," +
+                "ramal" + "  TEXT," +
                 "departamento" + "  TEXT NOT NULL," +
-                "patrimonio" + "  TEXT NOT NULL," +
+                "patrimonio" + "  TEXT," +
                 "descricao" + "  TEXT NOT NULL," +
                 "solucao" + "  TEXT," +
                 "PRIMARY KEY('id'));";
