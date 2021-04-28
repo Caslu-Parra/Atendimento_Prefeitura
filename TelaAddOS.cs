@@ -45,16 +45,20 @@ namespace Atendimento
             data = DateTime.Now;
             txbID.Text = geraID();
             txbTecnico.Text = "Lucas Parra";
-            txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString() 
+            txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
             + ' ' + data.Hour + ':' + data.Minute;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var indexDept = cbDept.SelectedIndex.ToString();
+            var departValue = cbDept.SelectedItem;
 
+            if (departValue == null)
+            {
+                departValue = null;
+            }
             var resultado = false;
-            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && indexDept.Length != 2)
+            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null)
             {
                 Info info = new Info();
                 info.Tecnico = txbTecnico.Text.ToUpper();
@@ -66,27 +70,33 @@ namespace Atendimento
                 info.Patrimonio = txbPatrimonio.Text;
                 info.Solucao = txbSolucao.Text;
                 info.Id = txbID.Text;
+                //info.Id = "Y6X8";
+
+
                 // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
                 resultado = db.Os_DAO.cadastrar(info);
             }
-            
+
             if (resultado == true)
             {
                 MessageBox.Show("Funcionário cadastrado com sucesso!");
-                // Limpar os campos do formulário:
-                this.Close();
+                this.Hide();
                 JanelaOS janelaOS = new JanelaOS();
                 janelaOS.ShowDialog();
-
+                this.Show();
             }
             else
             {
+                txbID.Text = geraID();
                 MessageBox.Show("Erro! Verifique os dados informados!");
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            var aa = txbRamal.Text;
+            MessageBox.Show("Texto é = "+ aa + " e o Length é = " +aa.Length.ToString());
+            txbID.Text = geraID();
             txbRamal.Text = null;
             txbPatrimonio.Text = null;
             txbSolicitante.Text = null;

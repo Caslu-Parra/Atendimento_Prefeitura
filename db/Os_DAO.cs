@@ -37,41 +37,79 @@ namespace Atendimento.db
         {
             // Instanciar e conectar ao banco:
             Banco banco = new Banco();
+
+            bool busca = false;
             try
             {
+
+                MessageBox.Show(info.Id);
+
+                DataTable query = new DataTable();
                 banco.Conectar();
                 // Criar o objeto SQLiteCommand:
                 var cmd = banco.conexao.CreateCommand();
-
-                // Definir qual comando DML (Insert - Delete - Update) será executado:
-                cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
-
-                // Definir a substituição dos parametros:
-                cmd.Parameters.AddWithValue("@id", info.Id);
-                cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
-                cmd.Parameters.AddWithValue("@data", info.Data);
-                cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
-                cmd.Parameters.AddWithValue("@ramal", info.Ramal);
-                cmd.Parameters.AddWithValue("@departamento", info.Departamento);
-                cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
-                cmd.Parameters.AddWithValue("@descricao", info.Descricao);
-                cmd.Parameters.AddWithValue("@solucao", info.Solucao);
-
-                // Executar:
-                cmd.ExecuteNonQuery();
-                // Desconectar
+                // Definir qual comando DQL será executado:
+                cmd.CommandText = "SELECT * FROM os WHERE id == '" + info.Id + "';";
+                // Executar e "atribuir" o resultado em um objeto SQLiteDA
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd.CommandText, banco.conexao);
+                // Definir qual "tabela" será preenchida com o resultado da consulta:
+                da.Fill(query);
+                // Desconectar:
                 banco.Desconectar();
-                // Se chegou até aqui é pq deu certo!
-                // Retornar true:
 
-                return true;
+                var linha = query.Rows[0];
+                // Preencher os campos do editar:
+                MessageBox.Show(linha.Field<string>("id").ToString());
+
+                busca = true;
             }
             catch
             {
-                // Desconectar
-                banco.Desconectar();
-                // Se chegou aqui é pq deu algum erro!
-                // Retornar false:
+                busca = false;
+            }
+
+            if (busca == false)
+            {
+                try
+                {
+                    MessageBox.Show("ate aqui ok!");
+                    banco.Conectar();
+                    // Criar o objeto SQLiteCommand:
+                    var cmd = banco.conexao.CreateCommand();
+
+                    // Definir qual comando DML (Insert - Delete - Update) será executado:
+                    cmd.CommandText = "INSERT INTO os (id, tecnico, data, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
+
+                    // Definir a substituição dos parametros:
+                    cmd.Parameters.AddWithValue("@id", info.Id);
+                    cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
+                    cmd.Parameters.AddWithValue("@data", info.Data);
+                    cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                    cmd.Parameters.AddWithValue("@ramal", info.Ramal);
+                    cmd.Parameters.AddWithValue("@departamento", info.Departamento);
+                    cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
+                    cmd.Parameters.AddWithValue("@descricao", info.Descricao);
+                    cmd.Parameters.AddWithValue("@solucao", info.Solucao);
+
+                    // Executar:
+                    cmd.ExecuteNonQuery();
+                    // Desconectar
+                    banco.Desconectar();
+                    // Se chegou até aqui é pq deu certo!
+                    // Retornar true:
+                    return true;
+                }
+                catch
+                {
+                    // Desconectar
+                    banco.Desconectar();
+                    // Se chegou aqui é pq deu algum erro!
+                    // Retornar false:
+                    return false;
+                }
+            }
+            else
+            {
                 return false;
             }
 

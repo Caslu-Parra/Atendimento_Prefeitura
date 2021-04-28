@@ -38,7 +38,6 @@ namespace Atendimento
             this.lblDept = new System.Windows.Forms.Label();
             this.txbID = new System.Windows.Forms.TextBox();
             this.lblRamal = new System.Windows.Forms.Label();
-            this.txbRamal = new System.Windows.Forms.TextBox();
             this.lblData = new System.Windows.Forms.Label();
             this.txbData = new System.Windows.Forms.TextBox();
             this.lblSolicitante = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@ namespace Atendimento
             this.txbDescricao = new System.Windows.Forms.TextBox();
             this.gpSolucao = new System.Windows.Forms.GroupBox();
             this.txbSolucao = new System.Windows.Forms.TextBox();
+            this.txbRamal = new System.Windows.Forms.MaskedTextBox();
             this.gbCabecalho.SuspendLayout();
             this.gbDescricao.SuspendLayout();
             this.gpSolucao.SuspendLayout();
@@ -59,6 +59,7 @@ namespace Atendimento
             // gbCabecalho
             // 
             this.gbCabecalho.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.gbCabecalho.Controls.Add(this.txbRamal);
             this.gbCabecalho.Controls.Add(this.btnCancelar);
             this.gbCabecalho.Controls.Add(this.btnSalvar);
             this.gbCabecalho.Controls.Add(this.txbPatrimonio);
@@ -67,7 +68,6 @@ namespace Atendimento
             this.gbCabecalho.Controls.Add(this.lblDept);
             this.gbCabecalho.Controls.Add(this.txbID);
             this.gbCabecalho.Controls.Add(this.lblRamal);
-            this.gbCabecalho.Controls.Add(this.txbRamal);
             this.gbCabecalho.Controls.Add(this.lblData);
             this.gbCabecalho.Controls.Add(this.txbData);
             this.gbCabecalho.Controls.Add(this.lblSolicitante);
@@ -111,14 +111,14 @@ namespace Atendimento
             // txbPatrimonio
             // 
             this.txbPatrimonio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbPatrimonio.Location = new System.Drawing.Point(655, 121);
+            this.txbPatrimonio.Location = new System.Drawing.Point(408, 56);
             this.txbPatrimonio.Name = "txbPatrimonio";
-            this.txbPatrimonio.Size = new System.Drawing.Size(132, 27);
+            this.txbPatrimonio.Size = new System.Drawing.Size(114, 27);
             this.txbPatrimonio.TabIndex = 16;
             // 
             // cbDept
             // 
-            this.cbDept.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbDept.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbDept.FormattingEnabled = true;
             this.cbDept.Items.AddRange(new object[] {
             "2º DISTRITO POLICIAL DE MOREIRA CÉSAR",
@@ -326,7 +326,7 @@ namespace Atendimento
             "VILA DOS AFETOS"});
             this.cbDept.Location = new System.Drawing.Point(278, 120);
             this.cbDept.Name = "cbDept";
-            this.cbDept.Size = new System.Drawing.Size(353, 28);
+            this.cbDept.Size = new System.Drawing.Size(509, 25);
             this.cbDept.TabIndex = 17;
             this.cbDept.Text = "Selecione a opção";
             // 
@@ -334,17 +334,17 @@ namespace Atendimento
             // 
             this.lblPatrimonio.AutoSize = true;
             this.lblPatrimonio.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPatrimonio.Location = new System.Drawing.Point(655, 96);
+            this.lblPatrimonio.Location = new System.Drawing.Point(406, 33);
             this.lblPatrimonio.Name = "lblPatrimonio";
-            this.lblPatrimonio.Size = new System.Drawing.Size(120, 22);
+            this.lblPatrimonio.Size = new System.Drawing.Size(70, 22);
             this.lblPatrimonio.TabIndex = 15;
-            this.lblPatrimonio.Text = "Patrimonio:";
+            this.lblPatrimonio.Text = "Patri:";
             // 
             // lblDept
             // 
             this.lblDept.AutoSize = true;
             this.lblDept.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDept.Location = new System.Drawing.Point(278, 96);
+            this.lblDept.Location = new System.Drawing.Point(275, 96);
             this.lblDept.Name = "lblDept";
             this.lblDept.Size = new System.Drawing.Size(140, 22);
             this.lblDept.TabIndex = 16;
@@ -354,34 +354,26 @@ namespace Atendimento
             // 
             this.txbID.Enabled = false;
             this.txbID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbID.Location = new System.Drawing.Point(655, 57);
+            this.txbID.Location = new System.Drawing.Point(673, 56);
             this.txbID.Name = "txbID";
-            this.txbID.Size = new System.Drawing.Size(132, 27);
+            this.txbID.Size = new System.Drawing.Size(114, 27);
             this.txbID.TabIndex = 14;
             // 
             // lblRamal
             // 
             this.lblRamal.AutoSize = true;
-            this.lblRamal.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRamal.Location = new System.Drawing.Point(278, 33);
+            this.lblRamal.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRamal.Location = new System.Drawing.Point(274, 34);
             this.lblRamal.Name = "lblRamal";
-            this.lblRamal.Size = new System.Drawing.Size(144, 20);
+            this.lblRamal.Size = new System.Drawing.Size(70, 22);
             this.lblRamal.TabIndex = 13;
-            this.lblRamal.Text = "Telefone/Ramal:";
-            // 
-            // txbRamal
-            // 
-            this.txbRamal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbRamal.Location = new System.Drawing.Point(278, 58);
-            this.txbRamal.Name = "txbRamal";
-            this.txbRamal.Size = new System.Drawing.Size(201, 27);
-            this.txbRamal.TabIndex = 12;
+            this.lblRamal.Text = "Ramal:";
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblData.Location = new System.Drawing.Point(504, 32);
+            this.lblData.Location = new System.Drawing.Point(540, 31);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(60, 22);
             this.lblData.TabIndex = 11;
@@ -390,9 +382,9 @@ namespace Atendimento
             // txbData
             // 
             this.txbData.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbData.Location = new System.Drawing.Point(504, 57);
+            this.txbData.Location = new System.Drawing.Point(541, 56);
             this.txbData.Name = "txbData";
-            this.txbData.Size = new System.Drawing.Size(127, 27);
+            this.txbData.Size = new System.Drawing.Size(114, 27);
             this.txbData.TabIndex = 10;
             // 
             // lblSolicitante
@@ -446,7 +438,7 @@ namespace Atendimento
             // 
             this.lbl_ID.AutoSize = true;
             this.lbl_ID.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ID.Location = new System.Drawing.Point(655, 32);
+            this.lbl_ID.Location = new System.Drawing.Point(673, 31);
             this.lbl_ID.Name = "lbl_ID";
             this.lbl_ID.Size = new System.Drawing.Size(40, 22);
             this.lbl_ID.TabIndex = 5;
@@ -494,6 +486,15 @@ namespace Atendimento
             this.txbSolucao.Size = new System.Drawing.Size(872, 151);
             this.txbSolucao.TabIndex = 20;
             // 
+            // txbRamal
+            // 
+            this.txbRamal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbRamal.Location = new System.Drawing.Point(278, 54);
+            this.txbRamal.Mask = "00000-0000";
+            this.txbRamal.Name = "txbRamal";
+            this.txbRamal.Size = new System.Drawing.Size(99, 29);
+            this.txbRamal.TabIndex = 22;
+            // 
             // TelaAddOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -527,7 +528,6 @@ namespace Atendimento
         private System.Windows.Forms.TextBox txbSolicitante;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRamal;
-        private System.Windows.Forms.TextBox txbRamal;
         private System.Windows.Forms.TextBox txbID;
         private System.Windows.Forms.Label lblDept;
         private System.Windows.Forms.ComboBox cbDept;
@@ -539,5 +539,6 @@ namespace Atendimento
         private System.Windows.Forms.TextBox txbDescricao;
         private System.Windows.Forms.GroupBox gpSolucao;
         private System.Windows.Forms.TextBox txbSolucao;
+        private System.Windows.Forms.MaskedTextBox txbRamal;
     }
 }
