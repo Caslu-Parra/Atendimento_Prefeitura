@@ -32,24 +32,35 @@ namespace Atendimento.db
                 // Será executado apenas na primeira vez que o código rodar:
                 // Conectar com o banco:
                 this.Conectar();
-                var cmd = this.conexao.CreateCommand();
-                // Comando SQL:
-                cmd.CommandText = "CREATE TABLE " + "os" + "(" +
-                "id" + "   TEXT NOT NULL," +
-                "tecnico" + "   TEXT NOT NULL," +
-                "data" + "   TEXT NOT NULL," +
-                "solicitante" + "  TEXT NOT NULL," +
-                "ramal" + "  TEXT," +
-                "departamento" + "  TEXT NOT NULL," +
-                "patrimonio" + "  TEXT," +
-                "descricao" + "  TEXT NOT NULL," +
-                "solucao" + "  TEXT," +
-                "PRIMARY KEY('id'));";
-
-
-
-                // Executar o comando:
-                cmd.ExecuteNonQuery();
+                for (var i = 1; i <= 2; i++) {
+                    if (i == 1) {
+                        var cmd = this.conexao.CreateCommand();
+                        // Comando SQL:
+                        cmd.CommandText = "CREATE TABLE " + "os" + "(" +
+                        "id" + "   TEXT NOT NULL," +
+                        "tecnico" + "   TEXT NOT NULL," +
+                        "data" + "   TEXT NOT NULL," +
+                        "solicitante" + "  TEXT NOT NULL," +
+                        "ramal" + "  TEXT," +
+                        "departamento" + "  TEXT NOT NULL," +
+                        "patrimonio" + "  TEXT," +
+                        "descricao" + "  TEXT NOT NULL," +
+                        "solucao" + "  TEXT," +
+                        "PRIMARY KEY('id'));";
+                        // Executar o comando:
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        var cmd = this.conexao.CreateCommand();
+                        cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
+                        "nome" + "   TEXT NOT NULL," +
+                        "senha" + "   TEXT NOT NULL," +
+                        "PRIMARY KEY('nome'));";
+                        // Executar o comando:
+                        cmd.ExecuteNonQuery();
+                    }
+                }
                 // Desconectar:
                 this.Desconectar();
             }

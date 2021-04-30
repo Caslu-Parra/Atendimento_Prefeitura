@@ -57,8 +57,13 @@ namespace Atendimento
             {
                 departValue = null;
             }
+            //MessageBox.Show("Ramal é: "+ txbRamal + " Length: "+ txbRamal.TextLength);
+            if (txbRamal.Text.Length == 6)
+            {
+                txbRamal.Text = txbRamal.Text.Replace(" ", "");
+            }
             var resultado = false;
-            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null)
+            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null && txbRamal.Text.Length != 6)
             {
                 Info info = new Info();
                 info.Tecnico = txbTecnico.Text.ToUpper();
@@ -94,8 +99,13 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            var aa = txbRamal.Text;
-            MessageBox.Show("Texto é = "+ aa + " e o Length é = " +aa.Length.ToString());
+            if (txbRamal.Text == "     -") {
+                MessageBox.Show("1 Ramal é: " + txbRamal.Text);
+            }
+            else
+            {
+                MessageBox.Show("2 Ramal é: " + txbRamal.Text);
+            }
             txbID.Text = geraID();
             txbRamal.Text = null;
             txbPatrimonio.Text = null;

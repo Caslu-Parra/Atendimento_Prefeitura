@@ -29,6 +29,8 @@ namespace Atendimento
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaOS));
             this.gbFiltro = new System.Windows.Forms.GroupBox();
             this.rbtnData = new System.Windows.Forms.RadioButton();
@@ -126,12 +128,18 @@ namespace Atendimento
             // 
             this.dgvOSList.AllowUserToAddRows = false;
             this.dgvOSList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOSList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvOSList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvOSList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvOSList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOSList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgvOSList.Location = new System.Drawing.Point(13, 79);
             this.dgvOSList.Name = "dgvOSList";
             this.dgvOSList.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOSList.RowTemplate.Height = 25;
             this.dgvOSList.Size = new System.Drawing.Size(991, 403);
             this.dgvOSList.TabIndex = 4;
@@ -180,6 +188,7 @@ namespace Atendimento
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dgvOSList);
             this.Controls.Add(this.gbFiltro);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "JanelaOS";
             this.Text = "JanelaOS";
             this.Load += new System.EventHandler(this.JanelaOS_Load);

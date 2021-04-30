@@ -30,6 +30,7 @@ namespace Atendimento
         private void InitializeComponent()
         {
             this.gbCabecalho = new System.Windows.Forms.GroupBox();
+            this.txbRamal = new System.Windows.Forms.MaskedTextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txbPatrimonio = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@ namespace Atendimento
             this.txbDescricao = new System.Windows.Forms.TextBox();
             this.gpSolucao = new System.Windows.Forms.GroupBox();
             this.txbSolucao = new System.Windows.Forms.TextBox();
-            this.txbRamal = new System.Windows.Forms.MaskedTextBox();
             this.gbCabecalho.SuspendLayout();
             this.gbDescricao.SuspendLayout();
             this.gpSolucao.SuspendLayout();
@@ -83,6 +83,15 @@ namespace Atendimento
             this.gbCabecalho.TabIndex = 2;
             this.gbCabecalho.TabStop = false;
             this.gbCabecalho.Text = "ATENDIMENTO";
+            // 
+            // txbRamal
+            // 
+            this.txbRamal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbRamal.Location = new System.Drawing.Point(278, 54);
+            this.txbRamal.Mask = "00000-0000";
+            this.txbRamal.Name = "txbRamal";
+            this.txbRamal.Size = new System.Drawing.Size(99, 29);
+            this.txbRamal.TabIndex = 22;
             // 
             // btnCancelar
             // 
@@ -485,15 +494,6 @@ namespace Atendimento
             this.txbSolucao.Name = "txbSolucao";
             this.txbSolucao.Size = new System.Drawing.Size(872, 151);
             this.txbSolucao.TabIndex = 20;
-            // 
-            // txbRamal
-            // 
-            this.txbRamal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbRamal.Location = new System.Drawing.Point(278, 54);
-            this.txbRamal.Mask = "00000-0000";
-            this.txbRamal.Name = "txbRamal";
-            this.txbRamal.Size = new System.Drawing.Size(99, 29);
-            this.txbRamal.TabIndex = 22;
             // 
             // TelaAddOS
             // 

@@ -19,15 +19,13 @@ namespace Atendimento
         {
             dgvOSList.DataSource = db.Os_DAO.listar();
         }
-       
+
 
         private void JanelaOS_Load(object sender, EventArgs e)
         {
             atualizaTabela();
-            //btnNovo.Image = Image.FromFile(@"C:\Users\lparra\Downloads\doc.png");
-            //btnNovo.ImageAlign = ContentAlignment.MiddleRight;
-            //btnNovo.TextAlign = ContentAlignment.MiddleLeft;
-            //btnNovo.FlatStyle = FlatStyle.Flat;
+            dgvOSList.DefaultCellStyle.ForeColor = Color.Black;
+            dgvOSList.DefaultCellStyle.BackColor = Color.AliceBlue;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -42,7 +40,7 @@ namespace Atendimento
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.Text += textBox1.Text.ToUpper();
+            textBox1.Text = textBox1.Text.ToUpper();
         }
     }
 }
