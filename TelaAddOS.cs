@@ -57,11 +57,6 @@ namespace Atendimento
             {
                 departValue = null;
             }
-            //MessageBox.Show("Ramal é: "+ txbRamal + " Length: "+ txbRamal.TextLength);
-            if (txbRamal.Text.Length == 6)
-            {
-                txbRamal.Text = txbRamal.Text.Replace(" ", "");
-            }
             var resultado = false;
             if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null && txbRamal.Text.Length != 6)
             {
@@ -75,7 +70,6 @@ namespace Atendimento
                 info.Patrimonio = txbPatrimonio.Text;
                 info.Solucao = txbSolucao.Text;
                 info.Id = txbID.Text;
-                //info.Id = "Y6X8";
 
 
                 // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
@@ -85,10 +79,6 @@ namespace Atendimento
             if (resultado == true)
             {
                 MessageBox.Show("Funcionário cadastrado com sucesso!");
-                this.Hide();
-                JanelaOS janelaOS = new JanelaOS();
-                janelaOS.ShowDialog();
-                this.Show();
             }
             else
             {
@@ -99,7 +89,8 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (txbRamal.Text == "     -") {
+            if (txbRamal.Text == "     -")
+            {
                 MessageBox.Show("1 Ramal é: " + txbRamal.Text);
             }
             else

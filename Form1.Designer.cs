@@ -34,7 +34,7 @@ namespace Atendimento
             this.lblSenha = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbUser = new System.Windows.Forms.TextBox();
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -80,19 +80,20 @@ namespace Atendimento
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txbUser
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(33, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 29);
-            this.textBox1.TabIndex = 4;
+            this.txbUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbUser.Location = new System.Drawing.Point(33, 52);
+            this.txbUser.Name = "txbUser";
+            this.txbUser.Size = new System.Drawing.Size(239, 29);
+            this.txbUser.TabIndex = 4;
             // 
             // txbSenha
             // 
             this.txbSenha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbSenha.Location = new System.Drawing.Point(33, 130);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(239, 29);
             this.txbSenha.TabIndex = 5;
             // 
@@ -102,7 +103,7 @@ namespace Atendimento
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 226);
             this.Controls.Add(this.txbSenha);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbUser);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.lblSenha);
@@ -121,7 +122,7 @@ namespace Atendimento
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbUser;
         private System.Windows.Forms.TextBox txbSenha;
     }
 }

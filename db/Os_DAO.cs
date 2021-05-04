@@ -38,12 +38,10 @@ namespace Atendimento.db
             // Instanciar e conectar ao banco:
             Banco banco = new Banco();
 
+            // Variável Flag de controle.
             bool busca = false;
             try
             {
-
-                MessageBox.Show(info.Id);
-
                 DataTable query = new DataTable();
                 banco.Conectar();
                 // Criar o objeto SQLiteCommand:
@@ -56,11 +54,10 @@ namespace Atendimento.db
                 da.Fill(query);
                 // Desconectar:
                 banco.Desconectar();
-
                 var linha = query.Rows[0];
-                // Preencher os campos do editar:
-                MessageBox.Show(linha.Field<string>("id").ToString());
 
+                /* Se não houver erro quer dizer que já há alguma os com o ID informado, portanto,
+                o programa irá gerar outro ID válido que ainda não foi utilizado. */
                 busca = true;
             }
             catch
@@ -72,7 +69,6 @@ namespace Atendimento.db
             {
                 try
                 {
-                    MessageBox.Show("ate aqui ok!");
                     banco.Conectar();
                     // Criar o objeto SQLiteCommand:
                     var cmd = banco.conexao.CreateCommand();
@@ -96,7 +92,6 @@ namespace Atendimento.db
                     // Desconectar
                     banco.Desconectar();
                     // Se chegou até aqui é pq deu certo!
-                    // Retornar true:
                     return true;
                 }
                 catch
@@ -104,7 +99,6 @@ namespace Atendimento.db
                     // Desconectar
                     banco.Desconectar();
                     // Se chegou aqui é pq deu algum erro!
-                    // Retornar false:
                     return false;
                 }
             }

@@ -68,3 +68,4 @@ C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\runtimes\unix\lib\ne
 C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.TelaAddOS.resources
 C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.csproj.CopyComplete
+C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\EasyEncryption.dll
