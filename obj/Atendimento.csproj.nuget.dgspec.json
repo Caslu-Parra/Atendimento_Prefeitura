@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj": {}
+    "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj": {
+    "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
+        "projectUniqueName": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
         "projectName": "Atendimento",
-        "projectPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
-        "packagesPath": "C:\\Users\\lparra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\obj\\",
+        "projectPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
+        "packagesPath": "C:\\Users\\Lucas Parra\\.nuget\\packages\\",
+        "outputPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lparra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas Parra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

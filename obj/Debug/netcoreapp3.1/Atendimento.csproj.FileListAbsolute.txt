@@ -69,3 +69,4 @@ C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\runtimes\win\lib\net
 C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.TelaAddOS.resources
 C:\Users\lparra\Desktop\Atendimento\obj\Debug\netcoreapp3.1\Atendimento.csproj.CopyComplete
 C:\Users\lparra\Desktop\Atendimento\bin\Debug\netcoreapp3.1\EasyEncryption.dll
+C:\lp_dir\Projetos\Atendimento_Prefeitura\bin\Debug\netcoreapp3.1\EasyEncryption.dll

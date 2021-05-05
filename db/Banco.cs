@@ -53,10 +53,17 @@ namespace Atendimento.db
                     else
                     {
                         var cmd = this.conexao.CreateCommand();
-                        cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
-                        "nome" + "   TEXT NOT NULL," +
-                        "senha" + "   TEXT NOT NULL," +
-                        "PRIMARY KEY('nome'));";
+                        cmd.CommandText = "CREATE TABLE "+ "usuarios" + "(" +
+                        "nome" + " TEXT NOT NULL," +
+                        "senha" + " TEXT NOT NULL," +
+                        "userID" + "  INTEGER NOT NULL,"+
+                        "PRIMARY KEY('userID' AUTOINCREMENT));";
+
+                        //cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
+                        //"nome" + "   TEXT NOT NULL," +
+                        //"senha" + "   TEXT NOT NULL," +
+                        //"PRIMARY KEY('nome'));";
+
                         // Executar o comando:
                         cmd.ExecuteNonQuery();
                     }

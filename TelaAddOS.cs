@@ -16,7 +16,12 @@ namespace Atendimento
         {
             InitializeComponent();
         }
+        User user = new User();
 
+        public void InfoUser(string nome)
+        {
+            user.Nome = nome;
+        }
         public static string letraRamdom(int tamanho)
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -44,9 +49,23 @@ namespace Atendimento
         {
             data = DateTime.Now;
             txbID.Text = geraID();
-            txbTecnico.Text = "Lucas Parra";
-            txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
+            txbTecnico.Text = user.Nome;
+            var minuto = data.Minute.ToString();
+
+            // Arruma a hora.
+            // Problema, sempre quando a cada do minuto não é decimal ele pega a unidade.
+            // Por exemplo: 15:2 hrs ao invés de pegar 15:02 hrs.
+            if (minuto.Length == 1)
+            {
+                txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
+            + ' ' + data.Hour + ":0" + data.Minute;
+            }
+            else
+            {
+                txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
             + ' ' + data.Hour + ':' + data.Minute;
+            }
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

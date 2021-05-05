@@ -17,13 +17,7 @@ namespace Atendimento
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            // https://github.com/polischuk/EasyEncryption/wiki/Usage-wiki
-
             JanelaOS janelaOS = new JanelaOS();
-
-            //var text = "My text";
-            //var result = EasyEncryption.SHA.ComputeSHA256Hash(text);
 
             User user = new User();
             user.Senha = EasyEncryption.SHA.ComputeSHA256Hash(txbSenha.Text);
@@ -32,7 +26,10 @@ namespace Atendimento
             if (db.UsuarioDAO.logar(user))
             {
                 this.Hide();
+                janelaOS.InfoUser(user.Nome);
                 janelaOS.ShowDialog();
+                txbSenha.Text = "";
+                txbUser.Text = "";
                 this.Show();
             }
             else

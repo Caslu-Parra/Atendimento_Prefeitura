@@ -29,6 +29,7 @@ namespace Atendimento
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaAddOS));
             this.gbCabecalho = new System.Windows.Forms.GroupBox();
             this.txbRamal = new System.Windows.Forms.MaskedTextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -76,8 +77,8 @@ namespace Atendimento
             this.gbCabecalho.Controls.Add(this.lblTecnico);
             this.gbCabecalho.Controls.Add(this.txbTecnico);
             this.gbCabecalho.Controls.Add(this.lbl_ID);
-            this.gbCabecalho.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gbCabecalho.Location = new System.Drawing.Point(12, 24);
+            this.gbCabecalho.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gbCabecalho.Location = new System.Drawing.Point(12, 6);
             this.gbCabecalho.Name = "gbCabecalho";
             this.gbCabecalho.Size = new System.Drawing.Size(914, 168);
             this.gbCabecalho.TabIndex = 2;
@@ -101,7 +102,7 @@ namespace Atendimento
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 42);
             this.btnCancelar.TabIndex = 19;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Limpar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -457,10 +458,10 @@ namespace Atendimento
             // 
             this.gbDescricao.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.gbDescricao.Controls.Add(this.txbDescricao);
-            this.gbDescricao.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbDescricao.Location = new System.Drawing.Point(18, 241);
+            this.gbDescricao.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gbDescricao.Location = new System.Drawing.Point(12, 193);
             this.gbDescricao.Name = "gbDescricao";
-            this.gbDescricao.Size = new System.Drawing.Size(902, 199);
+            this.gbDescricao.Size = new System.Drawing.Size(914, 195);
             this.gbDescricao.TabIndex = 3;
             this.gbDescricao.TabStop = false;
             this.gbDescricao.Text = "Descrição do Problema";
@@ -471,17 +472,17 @@ namespace Atendimento
             this.txbDescricao.Location = new System.Drawing.Point(15, 28);
             this.txbDescricao.Multiline = true;
             this.txbDescricao.Name = "txbDescricao";
-            this.txbDescricao.Size = new System.Drawing.Size(872, 151);
+            this.txbDescricao.Size = new System.Drawing.Size(878, 151);
             this.txbDescricao.TabIndex = 20;
             // 
             // gpSolucao
             // 
             this.gpSolucao.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.gpSolucao.Controls.Add(this.txbSolucao);
-            this.gpSolucao.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gpSolucao.Location = new System.Drawing.Point(18, 465);
+            this.gpSolucao.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gpSolucao.Location = new System.Drawing.Point(12, 410);
             this.gpSolucao.Name = "gpSolucao";
-            this.gpSolucao.Size = new System.Drawing.Size(902, 199);
+            this.gpSolucao.Size = new System.Drawing.Size(914, 199);
             this.gpSolucao.TabIndex = 21;
             this.gpSolucao.TabStop = false;
             this.gpSolucao.Text = "Solução Aplicada";
@@ -492,18 +493,21 @@ namespace Atendimento
             this.txbSolucao.Location = new System.Drawing.Point(15, 28);
             this.txbSolucao.Multiline = true;
             this.txbSolucao.Name = "txbSolucao";
-            this.txbSolucao.Size = new System.Drawing.Size(872, 151);
+            this.txbSolucao.Size = new System.Drawing.Size(878, 151);
             this.txbSolucao.TabIndex = 20;
             // 
             // TelaAddOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 676);
+            this.ClientSize = new System.Drawing.Size(938, 621);
             this.Controls.Add(this.gpSolucao);
             this.Controls.Add(this.gbDescricao);
             this.Controls.Add(this.gbCabecalho);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaAddOS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAddOS";
             this.Load += new System.EventHandler(this.TelaAddOS_Load);
             this.gbCabecalho.ResumeLayout(false);

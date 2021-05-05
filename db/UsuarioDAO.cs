@@ -39,17 +39,19 @@ namespace Atendimento.db
                 {
                     /* Se não houver erro quer dizer que já há alguma os com o ID informado, portanto,
                     o programa irá gerar outro ID válido que ainda não foi utilizado. */
+                    User user2 = new User();
+                    user.UserId = linha.Field<Int64>("userID").ToString();
                     return true;
                 }
                 else
                 {
                     return false;
                 }
-            }
+        }
             catch
             {
                 return false;
             }
         }
-    }
+}
 }
