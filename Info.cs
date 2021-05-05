@@ -9,6 +9,7 @@ namespace Atendimento
         public string Tecnico { get; set; }
         public string Departamento { get; set; }
         public string Data { get; set; }
+        public string Horario { get; set; }
         public string Ramal { get; set; }
         public string Id { get; set; }
         public string Solicitante { get; set; }

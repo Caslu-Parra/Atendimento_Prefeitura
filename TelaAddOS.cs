@@ -12,6 +12,28 @@ namespace Atendimento
     public partial class TelaAddOS : Form
     {
         DateTime data;
+
+        public string Data(string opcao)
+        {
+            data = DateTime.Now;
+            if (opcao == "minuto")
+            {
+                var minuto = data.Minute.ToString();
+
+                if (minuto.Length == 1)
+                {
+                   return data.Hour + ":0" + data.Minute;
+                }
+                else
+                {
+                    return data.Hour + ":" + data.Minute;
+                }
+            }
+            else
+            {
+                return data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString();
+            }
+        }
         public TelaAddOS()
         {
             InitializeComponent();
@@ -47,25 +69,10 @@ namespace Atendimento
 
         private void TelaAddOS_Load(object sender, EventArgs e)
         {
-            data = DateTime.Now;
             txbID.Text = geraID();
             txbTecnico.Text = user.Nome;
-            var minuto = data.Minute.ToString();
-
-            // Arruma a hora.
-            // Problema, sempre quando a cada do minuto não é decimal ele pega a unidade.
-            // Por exemplo: 15:2 hrs ao invés de pegar 15:02 hrs.
-            if (minuto.Length == 1)
-            {
-                txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
-            + ' ' + data.Hour + ":0" + data.Minute;
-            }
-            else
-            {
-                txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
-            + ' ' + data.Hour + ':' + data.Minute;
-            }
-
+            txbData.Text = Data("data");
+            txbHorario.Text = Data("minuto");
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -83,6 +90,7 @@ namespace Atendimento
                 info.Tecnico = txbTecnico.Text.ToUpper();
                 info.Ramal = txbRamal.Text;
                 info.Data = txbData.Text;
+                info.Horario = txbHorario.Text;
                 info.Solicitante = txbSolicitante.Text.ToUpper();
                 info.Departamento = cbDept.SelectedItem.ToString().ToUpper();
                 info.Descricao = txbDescricao.Text;
@@ -108,14 +116,6 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (txbRamal.Text == "     -")
-            {
-                MessageBox.Show("1 Ramal é: " + txbRamal.Text);
-            }
-            else
-            {
-                MessageBox.Show("2 Ramal é: " + txbRamal.Text);
-            }
             txbID.Text = geraID();
             txbRamal.Text = null;
             txbPatrimonio.Text = null;
@@ -125,9 +125,8 @@ namespace Atendimento
             txbSolucao.Text = null;
             cbDept.Text = "Selecione a opção";
             cbDept.SelectedItem = null;
-            txbData.Text = null;
-            txbData.Text = data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString()
-            + ' ' + data.Hour + ':' + data.Minute;
+            txbData.Text = Data("data");
+            txbHorario.Text = Data("minuto");
         }
     }
 }

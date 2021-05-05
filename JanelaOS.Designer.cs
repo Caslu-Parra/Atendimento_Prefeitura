@@ -29,15 +29,15 @@ namespace Atendimento
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaOS));
             this.gbFiltro = new System.Windows.Forms.GroupBox();
-            this.rbtnData = new System.Windows.Forms.RadioButton();
-            this.rbtnSolicitante = new System.Windows.Forms.RadioButton();
-            this.rbtnID = new System.Windows.Forms.RadioButton();
-            this.rbtnTecnico = new System.Windows.Forms.RadioButton();
-            this.rbtnPatrimonio = new System.Windows.Forms.RadioButton();
+            this.rBtnData = new System.Windows.Forms.RadioButton();
+            this.rBtnSolicitante = new System.Windows.Forms.RadioButton();
+            this.rBtnID = new System.Windows.Forms.RadioButton();
+            this.rBtnTecnico = new System.Windows.Forms.RadioButton();
+            this.rBtnPatrimonio = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvOSList = new System.Windows.Forms.DataGridView();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -57,11 +57,11 @@ namespace Atendimento
             // 
             // gbFiltro
             // 
-            this.gbFiltro.Controls.Add(this.rbtnData);
-            this.gbFiltro.Controls.Add(this.rbtnSolicitante);
-            this.gbFiltro.Controls.Add(this.rbtnID);
-            this.gbFiltro.Controls.Add(this.rbtnTecnico);
-            this.gbFiltro.Controls.Add(this.rbtnPatrimonio);
+            this.gbFiltro.Controls.Add(this.rBtnData);
+            this.gbFiltro.Controls.Add(this.rBtnSolicitante);
+            this.gbFiltro.Controls.Add(this.rBtnID);
+            this.gbFiltro.Controls.Add(this.rBtnTecnico);
+            this.gbFiltro.Controls.Add(this.rBtnPatrimonio);
             this.gbFiltro.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbFiltro.Location = new System.Drawing.Point(275, 2);
             this.gbFiltro.Name = "gbFiltro";
@@ -70,57 +70,57 @@ namespace Atendimento
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Procurar Por";
             // 
-            // rbtnData
+            // rBtnData
             // 
-            this.rbtnData.AutoSize = true;
-            this.rbtnData.Location = new System.Drawing.Point(220, 26);
-            this.rbtnData.Name = "rbtnData";
-            this.rbtnData.Size = new System.Drawing.Size(59, 24);
-            this.rbtnData.TabIndex = 7;
-            this.rbtnData.Text = "Data";
-            this.rbtnData.UseVisualStyleBackColor = true;
+            this.rBtnData.AutoSize = true;
+            this.rBtnData.Location = new System.Drawing.Point(220, 26);
+            this.rBtnData.Name = "rBtnData";
+            this.rBtnData.Size = new System.Drawing.Size(59, 24);
+            this.rBtnData.TabIndex = 7;
+            this.rBtnData.Text = "Data";
+            this.rBtnData.UseVisualStyleBackColor = true;
             // 
-            // rbtnSolicitante
+            // rBtnSolicitante
             // 
-            this.rbtnSolicitante.AutoSize = true;
-            this.rbtnSolicitante.Location = new System.Drawing.Point(120, 26);
-            this.rbtnSolicitante.Name = "rbtnSolicitante";
-            this.rbtnSolicitante.Size = new System.Drawing.Size(98, 24);
-            this.rbtnSolicitante.TabIndex = 8;
-            this.rbtnSolicitante.Text = "Solicitante";
-            this.rbtnSolicitante.UseVisualStyleBackColor = true;
+            this.rBtnSolicitante.AutoSize = true;
+            this.rBtnSolicitante.Location = new System.Drawing.Point(120, 26);
+            this.rBtnSolicitante.Name = "rBtnSolicitante";
+            this.rBtnSolicitante.Size = new System.Drawing.Size(98, 24);
+            this.rBtnSolicitante.TabIndex = 8;
+            this.rBtnSolicitante.Text = "Solicitante";
+            this.rBtnSolicitante.UseVisualStyleBackColor = true;
             // 
-            // rbtnID
+            // rBtnID
             // 
-            this.rbtnID.AutoSize = true;
-            this.rbtnID.Checked = true;
-            this.rbtnID.Location = new System.Drawing.Point(11, 26);
-            this.rbtnID.Name = "rbtnID";
-            this.rbtnID.Size = new System.Drawing.Size(103, 24);
-            this.rbtnID.TabIndex = 10;
-            this.rbtnID.TabStop = true;
-            this.rbtnID.Text = "Número ID";
-            this.rbtnID.UseVisualStyleBackColor = true;
+            this.rBtnID.AutoSize = true;
+            this.rBtnID.Checked = true;
+            this.rBtnID.Location = new System.Drawing.Point(11, 26);
+            this.rBtnID.Name = "rBtnID";
+            this.rBtnID.Size = new System.Drawing.Size(103, 24);
+            this.rBtnID.TabIndex = 10;
+            this.rBtnID.TabStop = true;
+            this.rBtnID.Text = "Número ID";
+            this.rBtnID.UseVisualStyleBackColor = true;
             // 
-            // rbtnTecnico
+            // rBtnTecnico
             // 
-            this.rbtnTecnico.AutoSize = true;
-            this.rbtnTecnico.Location = new System.Drawing.Point(285, 26);
-            this.rbtnTecnico.Name = "rbtnTecnico";
-            this.rbtnTecnico.Size = new System.Drawing.Size(78, 24);
-            this.rbtnTecnico.TabIndex = 9;
-            this.rbtnTecnico.Text = "Técnico";
-            this.rbtnTecnico.UseVisualStyleBackColor = true;
+            this.rBtnTecnico.AutoSize = true;
+            this.rBtnTecnico.Location = new System.Drawing.Point(285, 26);
+            this.rBtnTecnico.Name = "rBtnTecnico";
+            this.rBtnTecnico.Size = new System.Drawing.Size(78, 24);
+            this.rBtnTecnico.TabIndex = 9;
+            this.rBtnTecnico.Text = "Técnico";
+            this.rBtnTecnico.UseVisualStyleBackColor = true;
             // 
-            // rbtnPatrimonio
+            // rBtnPatrimonio
             // 
-            this.rbtnPatrimonio.AutoSize = true;
-            this.rbtnPatrimonio.Location = new System.Drawing.Point(369, 26);
-            this.rbtnPatrimonio.Name = "rbtnPatrimonio";
-            this.rbtnPatrimonio.Size = new System.Drawing.Size(103, 24);
-            this.rbtnPatrimonio.TabIndex = 6;
-            this.rbtnPatrimonio.Text = "Patrimônio";
-            this.rbtnPatrimonio.UseVisualStyleBackColor = true;
+            this.rBtnPatrimonio.AutoSize = true;
+            this.rBtnPatrimonio.Location = new System.Drawing.Point(369, 26);
+            this.rBtnPatrimonio.Name = "rBtnPatrimonio";
+            this.rBtnPatrimonio.Size = new System.Drawing.Size(103, 24);
+            this.rBtnPatrimonio.TabIndex = 6;
+            this.rBtnPatrimonio.Text = "Patrimônio";
+            this.rBtnPatrimonio.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -135,8 +135,8 @@ namespace Atendimento
             // 
             this.dgvOSList.AllowUserToAddRows = false;
             this.dgvOSList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOSList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOSList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOSList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvOSList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -145,8 +145,8 @@ namespace Atendimento
             this.dgvOSList.Location = new System.Drawing.Point(12, 65);
             this.dgvOSList.Name = "dgvOSList";
             this.dgvOSList.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOSList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOSList.RowTemplate.Height = 25;
             this.dgvOSList.Size = new System.Drawing.Size(991, 393);
             this.dgvOSList.TabIndex = 4;
@@ -267,11 +267,11 @@ namespace Atendimento
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgvOSList;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.RadioButton rbtnPatrimonio;
-        private System.Windows.Forms.RadioButton rbtnData;
-        private System.Windows.Forms.RadioButton rbtnSolicitante;
-        private System.Windows.Forms.RadioButton rbtnTecnico;
-        private System.Windows.Forms.RadioButton rbtnID;
+        private System.Windows.Forms.RadioButton rBtnPatrimonio;
+        private System.Windows.Forms.RadioButton rBtnData;
+        private System.Windows.Forms.RadioButton rBtnSolicitante;
+        private System.Windows.Forms.RadioButton rBtnTecnico;
+        private System.Windows.Forms.RadioButton rBtnID;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAddUser;

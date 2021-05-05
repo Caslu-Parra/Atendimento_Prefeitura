@@ -40,6 +40,7 @@ namespace Atendimento.db
                         "id" + "   TEXT NOT NULL," +
                         "tecnico" + "   TEXT NOT NULL," +
                         "data" + "   TEXT NOT NULL," +
+                        "horario" + "   TEXT NOT NULL," +
                         "solicitante" + "  TEXT NOT NULL," +
                         "ramal" + "  TEXT," +
                         "departamento" + "  TEXT NOT NULL," +

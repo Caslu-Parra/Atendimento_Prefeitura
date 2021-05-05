@@ -1256,19 +1256,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucas Parra\\.nuget\\packages\\": {}
+    "C:\\Users\\lparra\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
+      "projectUniqueName": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
       "projectName": "Atendimento",
-      "projectPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\Atendimento.csproj",
-      "packagesPath": "C:\\Users\\Lucas Parra\\.nuget\\packages\\",
-      "outputPath": "C:\\lp_dir\\Projetos\\Atendimento_Prefeitura\\obj\\",
+      "projectPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\Atendimento.csproj",
+      "packagesPath": "C:\\Users\\lparra\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lparra\\Desktop\\Atendimento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lucas Parra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lparra\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

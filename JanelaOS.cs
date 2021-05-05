@@ -27,15 +27,39 @@ namespace Atendimento
             user.Nome = nome;
         }
 
+        private string SelectedIndex()
+        {
+            if (rBtnData.Checked)
+            {
+                return "data";
+            }
+            else if (rBtnID.Checked)
+            {
+                return "id";
+            }
+            else if (rBtnTecnico.Checked)
+            {
+                return "tecnico";
+            }
+            else if (rBtnSolicitante.Checked)
+            {
+                return "solicitante";
+            }
+            else if (rBtnPatrimonio.Checked)
+            {
+                return "patrimonio";
+            }
+            else
+            {
+                return "Informe um parametro válido";  
+            }
+        }
+
         private void JanelaOS_Load(object sender, EventArgs e)
         {
             atualizaTabela();
             dgvOSList.DefaultCellStyle.ForeColor = Color.Black;
             dgvOSList.DefaultCellStyle.BackColor = Color.AliceBlue;
-            if (user.Nome == "Leandro")
-            {
-
-            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -51,6 +75,7 @@ namespace Atendimento
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            MessageBox.Show(SelectedIndex());
             textBox1.Text = textBox1.Text.ToUpper();
         }
     }
