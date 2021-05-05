@@ -22,7 +22,7 @@ namespace Atendimento
 
                 if (minuto.Length == 1)
                 {
-                   return data.Hour + ":0" + data.Minute;
+                    return data.Hour + ":0" + data.Minute;
                 }
                 else
                 {
@@ -31,7 +31,24 @@ namespace Atendimento
             }
             else
             {
-                return data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString();
+                var dia = data.Day.ToString();
+                var mes = data.Month.ToString();
+                if (dia.Length == 1 && mes.Length == 1)
+                {
+                    return "0" + data.Day.ToString() + "/0" + data.Month.ToString() + '/' + data.Year.ToString();
+                }
+                else if (dia.Length == 1)
+                {
+                    return "0" + data.Day.ToString() + "/" + data.Month.ToString() + '/' + data.Year.ToString();
+                }
+                else if (mes.Length == 1)
+                {
+                    return data.Day.ToString() + "/0" + data.Month.ToString() + '/' + data.Year.ToString();
+                }
+                else
+                {
+                    return data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString();
+                }
             }
         }
         public TelaAddOS()

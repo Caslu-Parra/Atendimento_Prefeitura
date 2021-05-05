@@ -9,7 +9,7 @@ namespace Atendimento.db
 {
     static class Os_DAO
     {
-        public static DataTable listar()
+        public static DataTable listar(string filtro, string campoTxb)
         {
             // Instanciando a classe de conexão ao bando de dados.
             db.Banco banco = new db.Banco();
@@ -19,11 +19,18 @@ namespace Atendimento.db
 
             // Conecta do Banco.
             banco.Conectar();
-
             // Variável de comandos SQL.
             var cmd = banco.conexao.CreateCommand();
-            // Comando SQL à ser exectado.
-            cmd.CommandText = "SELECT * FROM OS";
+            if (filtro == "*" && campoTxb == "")
+            {
+                // Comando SQL à ser exectado.
+                cmd.CommandText = "SELECT * FROM OS";
+            }
+            else
+            {
+                // Comando SQL à ser exectado.
+                cmd.CommandText = "SELECT * FROM OS WHERE " + filtro + " = '" + campoTxb + "';";
+            }
             // Executar e obter dadoas de uma consulta.
             SQLiteDataAdapter da = new SQLiteDataAdapter(cmd.CommandText, banco.conexao);
             // Preencher uma "tabela" com o resultado da consulta no banco armazenado em "da".

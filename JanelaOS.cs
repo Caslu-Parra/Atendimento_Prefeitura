@@ -19,7 +19,7 @@ namespace Atendimento
 
         private void atualizaTabela()
         {
-            dgvOSList.DataSource = db.Os_DAO.listar();
+            dgvOSList.DataSource = db.Os_DAO.listar("*","");
         }
 
         public void InfoUser(string nome)
@@ -68,15 +68,19 @@ namespace Atendimento
             TelaAddOS janelaAddOS = new TelaAddOS();
             janelaAddOS.InfoUser(user.Nome);
             janelaAddOS.ShowDialog();
-            dgvOSList.DataSource = db.Os_DAO.listar();
+            dgvOSList.DataSource = db.Os_DAO.listar("*", "");
             this.Show();
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(SelectedIndex());
-            textBox1.Text = textBox1.Text.ToUpper();
+            dgvOSList.DataSource = db.Os_DAO.listar(SelectedIndex(), textBox1.Text);
+        }
+
+        private void btnRecarregar_Click(object sender, EventArgs e)
+        {
+            dgvOSList.DataSource = db.Os_DAO.listar("*", "");
         }
     }
 }
