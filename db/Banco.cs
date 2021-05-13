@@ -38,6 +38,7 @@ namespace Atendimento.db
                         // Comando SQL:
                         cmd.CommandText = "CREATE TABLE " + "os" + "(" +
                         "id" + "   TEXT NOT NULL," +
+                        "estado" + "   TEXT NOT NULL," +
                         "tecnico" + "   TEXT NOT NULL," +
                         "data" + "   TEXT NOT NULL," +
                         "horario" + "   TEXT NOT NULL," +
@@ -59,11 +60,6 @@ namespace Atendimento.db
                         "senha" + " TEXT NOT NULL," +
                         "userID" + "  INTEGER NOT NULL,"+
                         "PRIMARY KEY('userID' AUTOINCREMENT));";
-
-                        //cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
-                        //"nome" + "   TEXT NOT NULL," +
-                        //"senha" + "   TEXT NOT NULL," +
-                        //"PRIMARY KEY('nome'));";
 
                         // Executar o comando:
                         cmd.ExecuteNonQuery();

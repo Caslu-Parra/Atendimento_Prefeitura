@@ -81,10 +81,11 @@ namespace Atendimento.db
                     var cmd = banco.conexao.CreateCommand();
 
                     // Definir qual comando DML (Insert - Delete - Update) será executado:
-                    cmd.CommandText = "INSERT INTO os (id, tecnico, data, horario, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @tecnico, @data, @horario,@solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
+                    cmd.CommandText = "INSERT INTO os (id, estado, tecnico, data, horario, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @estado, @tecnico, @data, @horario,@solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
 
                     // Definir a substituição dos parametros:
                     cmd.Parameters.AddWithValue("@id", info.Id);
+                    cmd.Parameters.AddWithValue("@estado", "Não finalizado");
                     cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
                     cmd.Parameters.AddWithValue("@data", info.Data);
                     cmd.Parameters.AddWithValue("@horario", info.Horario);
@@ -115,6 +116,58 @@ namespace Atendimento.db
                 return false;
             }
 
+        }
+
+        public static bool editar(Info info) {
+            // Instanciar e conectar ao banco:
+            Banco banco = new Banco();
+            try
+            {
+                var estado = "";
+                if (info.Estado)
+                {
+                    estado = "Finalizado";
+                }
+                else
+                {
+                    estado = "Não finalizado";
+                }
+
+                banco.Conectar();
+                // Criar o objeto SQLiteCommand:
+                var cmd = banco.conexao.CreateCommand();
+
+                MessageBox.Show(info.Id.ToString());
+
+                // Definir qual comando DML (Insert - Delete - Update) será executado:
+                cmd.CommandText = "UPDATE os SET estado = @estado, tecnico = @tecnico, data = @data, horario = @horario, solicitante = @solicitante, ramal = @ramal, departamento = @departamento, patrimonio = @patrimonio, descricao = @descricao, solucao = @solucao WHERE id = @id";
+
+                cmd.Parameters.AddWithValue("@id", info.Id);
+                cmd.Parameters.AddWithValue("@estado", estado);
+                cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
+                cmd.Parameters.AddWithValue("@data", info.Data);
+                cmd.Parameters.AddWithValue("@horario", info.Horario);
+                cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                cmd.Parameters.AddWithValue("@ramal", info.Ramal);
+                cmd.Parameters.AddWithValue("@departamento", info.Departamento);
+                cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
+                cmd.Parameters.AddWithValue("@descricao", info.Descricao);
+                cmd.Parameters.AddWithValue("@solucao", info.Solucao);
+
+                // Executar:
+                cmd.ExecuteNonQuery();
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou até aqui é pq deu certo!
+                return true;
+            }
+            catch
+            {
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou aqui é pq deu algum erro!
+                return false;
+            }
         }
     }
 }

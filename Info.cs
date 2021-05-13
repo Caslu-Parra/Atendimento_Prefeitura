@@ -16,5 +16,6 @@ namespace Atendimento
         public string Patrimonio { get; set; }
         public string Descricao { get; set; }
         public string Solucao { get; set; }
+        public bool Estado { get; set; }
     }
 }

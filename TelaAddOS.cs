@@ -11,7 +11,11 @@ namespace Atendimento
 {
     public partial class TelaAddOS : Form
     {
+        // Variáveis Globais:
         DateTime data;
+        User user = new User();
+        bool modoEdicao = false;
+
 
         public string Data(string opcao)
         {
@@ -55,12 +59,36 @@ namespace Atendimento
         {
             InitializeComponent();
         }
-        User user = new User();
 
+        // Método de edição:
+        public void modoEditar(string tecnico, string data, string id, string solicitante, string dept, string ramal, string horario, string descricao, string solucao, string patr, bool edicao)
+        {
+            //string tecnico, string data, string id, string solicitante, string dept, string ramal, string horario, string descricao, string solucao, string patr,
+
+
+            /// ENVIAR OS DADOS DE EDIÇÃO PARA A PAGINA DE EDIÇÃO.
+            txbTecnico.Text = tecnico;
+            txbID.Text = id;
+            txbRamal.Text = ramal;
+            txbPatrimonio.Text = patr;
+            txbSolicitante.Text = solicitante;
+            txbDescricao.Text = descricao;
+            txbSolucao.Text = solucao;
+            cbDept.SelectedItem = null;
+            cbDept.Text = dept;
+            txbData.Text = data;
+            txbHorario.Text = horario;
+            modoEdicao = edicao;
+            btnSalvar.Text = "Editar";
+            btnCancelar.Visible = false;
+            this.Text = "Editar Ordem de Serviço";
+            cbFinalizado.Visible = true;
+        }
         public void InfoUser(string nome)
         {
             user.Nome = nome;
         }
+
         public static string letraRamdom(int tamanho)
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -86,24 +114,30 @@ namespace Atendimento
 
         private void TelaAddOS_Load(object sender, EventArgs e)
         {
-            txbID.Text = geraID();
-            txbTecnico.Text = user.Nome;
-            txbData.Text = Data("data");
-            txbHorario.Text = Data("minuto");
+            this.MaximizeBox = false;
+            if (modoEdicao != true)
+            {
+                txbID.Text = geraID();
+                txbTecnico.Text = user.Nome;
+                txbData.Text = Data("data");
+                txbHorario.Text = Data("minuto");
+            }
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             var departValue = cbDept.SelectedItem;
+            Info info = new Info();
 
             if (departValue == null)
             {
                 departValue = null;
             }
             var resultado = false;
+
             if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null && txbRamal.Text.Length != 6)
             {
-                Info info = new Info();
                 info.Tecnico = txbTecnico.Text.ToUpper();
                 info.Ramal = txbRamal.Text;
                 info.Data = txbData.Text;
@@ -114,19 +148,46 @@ namespace Atendimento
                 info.Patrimonio = txbPatrimonio.Text;
                 info.Solucao = txbSolucao.Text;
                 info.Id = txbID.Text;
+                if (cbFinalizado.Checked)
+                {
+                    info.Estado = true;
+                }
+                else
+                {
+                    info.Estado = false;
+                }
+            }
 
-
+            if (modoEdicao)
+            {
+                //MessageBox.Show("Modo de edição está ativo!");
+                // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
+                resultado = db.Os_DAO.editar(info);
+            }
+            else
+            {
                 // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
                 resultado = db.Os_DAO.cadastrar(info);
             }
 
             if (resultado == true)
             {
-                MessageBox.Show("Funcionário cadastrado com sucesso!");
+                if (modoEdicao == false)
+                {
+                    MessageBox.Show("Funcionário cadastrado com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Funcionário editado com sucesso!");
+                }
+                
             }
             else
             {
-                txbID.Text = geraID();
+                if (modoEdicao == false)
+                {
+                    txbID.Text = geraID();
+                }
                 MessageBox.Show("Erro! Verifique os dados informados!");
             }
         }
@@ -137,7 +198,6 @@ namespace Atendimento
             txbRamal.Text = null;
             txbPatrimonio.Text = null;
             txbSolicitante.Text = null;
-            txbPatrimonio.Text = null;
             txbDescricao.Text = null;
             txbSolucao.Text = null;
             cbDept.Text = "Selecione a opção";

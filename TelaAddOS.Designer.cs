@@ -31,6 +31,7 @@ namespace Atendimento
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaAddOS));
             this.gbCabecalho = new System.Windows.Forms.GroupBox();
+            this.cbFinalizado = new System.Windows.Forms.CheckBox();
             this.lblHora = new System.Windows.Forms.Label();
             this.txbHorario = new System.Windows.Forms.TextBox();
             this.txbRamal = new System.Windows.Forms.MaskedTextBox();
@@ -62,6 +63,7 @@ namespace Atendimento
             // gbCabecalho
             // 
             this.gbCabecalho.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.gbCabecalho.Controls.Add(this.cbFinalizado);
             this.gbCabecalho.Controls.Add(this.lblHora);
             this.gbCabecalho.Controls.Add(this.txbHorario);
             this.gbCabecalho.Controls.Add(this.txbRamal);
@@ -88,6 +90,18 @@ namespace Atendimento
             this.gbCabecalho.TabIndex = 2;
             this.gbCabecalho.TabStop = false;
             this.gbCabecalho.Text = "ATENDIMENTO";
+            // 
+            // cbFinalizado
+            // 
+            this.cbFinalizado.AutoSize = true;
+            this.cbFinalizado.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbFinalizado.Location = new System.Drawing.Point(795, 119);
+            this.cbFinalizado.Name = "cbFinalizado";
+            this.cbFinalizado.Size = new System.Drawing.Size(118, 24);
+            this.cbFinalizado.TabIndex = 26;
+            this.cbFinalizado.Text = "Finalizado";
+            this.cbFinalizado.UseVisualStyleBackColor = true;
+            this.cbFinalizado.Visible = false;
             // 
             // lblHora
             // 
@@ -120,7 +134,7 @@ namespace Atendimento
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelar.Location = new System.Drawing.Point(807, 106);
+            this.btnCancelar.Location = new System.Drawing.Point(807, 103);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 42);
             this.btnCancelar.TabIndex = 19;
@@ -530,7 +544,7 @@ namespace Atendimento
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaAddOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaAddOS";
+            this.Text = "Adicionar Ordem de Serviço";
             this.Load += new System.EventHandler(this.TelaAddOS_Load);
             this.gbCabecalho.ResumeLayout(false);
             this.gbCabecalho.PerformLayout();
@@ -568,5 +582,6 @@ namespace Atendimento
         private System.Windows.Forms.MaskedTextBox txbRamal;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.TextBox txbHorario;
+        private System.Windows.Forms.CheckBox cbFinalizado;
     }
 }
