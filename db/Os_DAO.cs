@@ -24,12 +24,30 @@ namespace Atendimento.db
             if (filtro == "*" && campoTxb == "")
             {
                 // Comando SQL à ser exectado.
-                cmd.CommandText = "SELECT * FROM OS";
+                cmd.CommandText = "SELECT os.id, os.estado, usuarios.nome AS 'tecnico', os.data, os.horario, os.solicitante, os.ramal, " +
+                 "os.departamento, os.patrimonio, os.descricao, os.solucao " +
+                 "FROM os " +
+                 "INNER JOIN usuarios ON os.tecnico = usuarios.userID;";
             }
             else
             {
                 // Comando SQL à ser exectado.
-                cmd.CommandText = "SELECT * FROM OS WHERE " + filtro + " = '" + campoTxb + "';";
+                if (filtro != "tecnico")
+                {
+                    cmd.CommandText = "SELECT os.id, os.estado, usuarios.nome AS 'tecnico', os.data, os.horario, os.solicitante, os.ramal, " +
+                     "os.departamento, os.patrimonio, os.descricao, os.solucao " +
+                     "FROM os " +
+                     "INNER JOIN usuarios ON os.tecnico = usuarios.userID " +
+                     "WHERE os." + filtro + " = '" + campoTxb + "'; ";
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT os.id, os.estado, usuarios.nome AS 'tecnico', os.data, os.horario, os.solicitante, os.ramal, " +
+                 "os.departamento, os.patrimonio, os.descricao, os.solucao " +
+                 "FROM os " +
+                 "INNER JOIN usuarios ON os.tecnico = usuarios.userID " +
+                 "WHERE usuarios.nome = '" + campoTxb + "'; ";
+                }
             }
             // Executar e obter dadoas de uma consulta.
             SQLiteDataAdapter da = new SQLiteDataAdapter(cmd.CommandText, banco.conexao);
@@ -81,7 +99,10 @@ namespace Atendimento.db
                     var cmd = banco.conexao.CreateCommand();
 
                     // Definir qual comando DML (Insert - Delete - Update) será executado:
-                    cmd.CommandText = "INSERT INTO os (id, estado, tecnico, data, horario, solicitante, ramal, departamento, patrimonio, descricao, solucao) values (@id, @estado, @tecnico, @data, @horario,@solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao)";
+
+                    cmd.CommandText = "INSERT INTO 'main'.'os'" +
+                    "('id', 'estado', 'tecnico', 'data', 'horario', 'solicitante', 'ramal', 'departamento', 'patrimonio', 'descricao', solucao) " +
+                    "VALUES (@id, @estado, @tecnico, @data, @horario, @solicitante, @ramal, @departamento, @patrimonio, @descricao, @solucao);";
 
                     // Definir a substituição dos parametros:
                     cmd.Parameters.AddWithValue("@id", info.Id);
@@ -118,7 +139,8 @@ namespace Atendimento.db
 
         }
 
-        public static bool editar(Info info) {
+        public static bool editar(Info info)
+        {
             // Instanciar e conectar ao banco:
             Banco banco = new Banco();
             try
@@ -136,8 +158,6 @@ namespace Atendimento.db
                 banco.Conectar();
                 // Criar o objeto SQLiteCommand:
                 var cmd = banco.conexao.CreateCommand();
-
-                MessageBox.Show(info.Id.ToString());
 
                 // Definir qual comando DML (Insert - Delete - Update) será executado:
                 cmd.CommandText = "UPDATE os SET estado = @estado, tecnico = @tecnico, data = @data, horario = @horario, solicitante = @solicitante, ramal = @ramal, departamento = @departamento, patrimonio = @patrimonio, descricao = @descricao, solucao = @solucao WHERE id = @id";

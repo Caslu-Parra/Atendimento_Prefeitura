@@ -9,10 +9,10 @@ namespace Atendimento.db
 {
     class UsuarioDAO
     {
-        public static bool logar(User user)
+        public static User logar(User user)
         {
             // Instanciando a classe de conexão ao bando de dados.
-            db.Banco banco = new db.Banco();
+            db.Banco banco = new db.Banco(); 
 
             // Cria uma tabela.
             DataTable tabela = new DataTable();
@@ -41,16 +41,19 @@ namespace Atendimento.db
                     o programa irá gerar outro ID válido que ainda não foi utilizado. */
                     User user2 = new User();
                     user.UserId = linha.Field<Int64>("userID").ToString();
-                    return true;
+                    user.Controle = true;
+                    return user;
                 }
                 else
                 {
-                    return false;
+                    user.Controle = false;
+                    return user;
                 }
         }
             catch
             {
-                return false;
+                user.Controle = false;
+                return user;
             }
         }
 }

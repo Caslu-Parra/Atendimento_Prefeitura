@@ -17,16 +17,16 @@ namespace Atendimento
 
         private void button1_Click(object sender, EventArgs e)
         {
-            JanelaOS janelaOS = new JanelaOS();
 
             User user = new User();
             user.Senha = EasyEncryption.SHA.ComputeSHA256Hash(txbSenha.Text);
             user.Nome = txbUser.Text;
 
-            if (db.UsuarioDAO.logar(user))
+
+            if (db.UsuarioDAO.logar(user).Controle)
             {
                 this.Hide();
-                janelaOS.InfoUser(user.Nome);
+                JanelaOS janelaOS = new JanelaOS(user.Nome, user.UserId);
                 janelaOS.ShowDialog();
                 txbSenha.Text = "";
                 txbUser.Text = "";

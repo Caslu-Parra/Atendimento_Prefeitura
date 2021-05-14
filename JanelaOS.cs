@@ -11,20 +11,19 @@ namespace Atendimento
 {
     public partial class JanelaOS : Form
     {
-        public JanelaOS()
+        User user = new User();
+
+        public JanelaOS(string nome, string id)
         {
             InitializeComponent();
+
+            user.UserId = id;
+            user.Nome = nome;
         }
-        User user = new User();
 
         private void atualizaTabela()
         {
             dgvOSList.DataSource = db.Os_DAO.listar("*", "");
-        }
-
-        public void InfoUser(string nome)
-        {
-            user.Nome = nome;
         }
 
         private string SelectedIndex()
@@ -70,8 +69,7 @@ namespace Atendimento
         private void btnNovo_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TelaAddOS janelaAddOS = new TelaAddOS();
-            janelaAddOS.InfoUser(user.Nome);
+            TelaAddOS janelaAddOS = new TelaAddOS(user.Nome, user.UserId);
             janelaAddOS.ShowDialog();
             dgvOSList.DataSource = db.Os_DAO.listar("*", "");
             this.Show();
@@ -109,6 +107,10 @@ namespace Atendimento
                 // obter linha 0:
                 var linha = dt.Rows[0];
 
+                var solucao = linha.Field<string>("solucao");
+                if (solucao == null) {
+                    solucao = "";
+                } 
 
                 info.Tecnico = linha.Field<string>("tecnico").ToString();
                 info.Ramal = linha.Field<string>("ramal").ToString();
@@ -118,16 +120,20 @@ namespace Atendimento
                 info.Departamento = linha.Field<string>("departamento").ToString();
                 info.Descricao = linha.Field<string>("descricao").ToString();
                 info.Patrimonio = linha.Field<string>("patrimonio").ToString();
-                info.Solucao = linha.Field<string>("solucao").ToString();
+                info.Solucao = solucao;
                 info.Id = linha.Field<string>("id").ToString();
 
+                if (linha.Field<string>("estado") == "Finalizado") {
+                    info.Estado = true;
+                }
 
                 /// ENVIAR OS DADOS DE EDIÇÃO PARA A PAGINA DE EDIÇÃO.
 
-                TelaAddOS editar = new TelaAddOS();
-                editar.modoEditar(info.Tecnico, info.Data, info.Id, info.Solicitante, info.Departamento, info.Ramal, info.Horario, info.Descricao, info.Solucao, info.Patrimonio, true);
+                TelaAddOS editar = new TelaAddOS(user.Nome, user.UserId);
+                editar.modoEditar(info.Tecnico, info.Data, info.Id, info.Solicitante, info.Departamento, info.Ramal, info.Horario, info.Descricao, info.Solucao, info.Patrimonio, info.Estado, true);
                 this.Hide();
                 editar.ShowDialog();
+                dgvOSList.DataSource = db.Os_DAO.listar("*", "");
                 this.Show();
             }
         }

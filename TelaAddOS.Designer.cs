@@ -31,20 +31,20 @@ namespace Atendimento
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaAddOS));
             this.gbCabecalho = new System.Windows.Forms.GroupBox();
+            this.txbHorario = new System.Windows.Forms.MaskedTextBox();
+            this.txbData = new System.Windows.Forms.MaskedTextBox();
+            this.txbPatrimonio = new System.Windows.Forms.MaskedTextBox();
             this.cbFinalizado = new System.Windows.Forms.CheckBox();
             this.lblHora = new System.Windows.Forms.Label();
-            this.txbHorario = new System.Windows.Forms.TextBox();
             this.txbRamal = new System.Windows.Forms.MaskedTextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.txbPatrimonio = new System.Windows.Forms.TextBox();
             this.cbDept = new System.Windows.Forms.ComboBox();
             this.lblPatrimonio = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
             this.txbID = new System.Windows.Forms.TextBox();
             this.lblRamal = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
-            this.txbData = new System.Windows.Forms.TextBox();
             this.lblSolicitante = new System.Windows.Forms.Label();
             this.txbSolicitante = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,20 +63,20 @@ namespace Atendimento
             // gbCabecalho
             // 
             this.gbCabecalho.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.gbCabecalho.Controls.Add(this.txbHorario);
+            this.gbCabecalho.Controls.Add(this.txbData);
+            this.gbCabecalho.Controls.Add(this.txbPatrimonio);
             this.gbCabecalho.Controls.Add(this.cbFinalizado);
             this.gbCabecalho.Controls.Add(this.lblHora);
-            this.gbCabecalho.Controls.Add(this.txbHorario);
             this.gbCabecalho.Controls.Add(this.txbRamal);
             this.gbCabecalho.Controls.Add(this.btnCancelar);
             this.gbCabecalho.Controls.Add(this.btnSalvar);
-            this.gbCabecalho.Controls.Add(this.txbPatrimonio);
             this.gbCabecalho.Controls.Add(this.cbDept);
             this.gbCabecalho.Controls.Add(this.lblPatrimonio);
             this.gbCabecalho.Controls.Add(this.lblDept);
             this.gbCabecalho.Controls.Add(this.txbID);
             this.gbCabecalho.Controls.Add(this.lblRamal);
             this.gbCabecalho.Controls.Add(this.lblData);
-            this.gbCabecalho.Controls.Add(this.txbData);
             this.gbCabecalho.Controls.Add(this.lblSolicitante);
             this.gbCabecalho.Controls.Add(this.txbSolicitante);
             this.gbCabecalho.Controls.Add(this.label1);
@@ -90,6 +90,36 @@ namespace Atendimento
             this.gbCabecalho.TabIndex = 2;
             this.gbCabecalho.TabStop = false;
             this.gbCabecalho.Text = "ATENDIMENTO";
+            // 
+            // txbHorario
+            // 
+            this.txbHorario.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbHorario.Location = new System.Drawing.Point(694, 54);
+            this.txbHorario.Mask = "00:00";
+            this.txbHorario.Name = "txbHorario";
+            this.txbHorario.Size = new System.Drawing.Size(90, 30);
+            this.txbHorario.TabIndex = 29;
+            this.txbHorario.ValidatingType = typeof(System.DateTime);
+            // 
+            // txbData
+            // 
+            this.txbData.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbData.Location = new System.Drawing.Point(542, 54);
+            this.txbData.Mask = "00/00/0000";
+            this.txbData.Name = "txbData";
+            this.txbData.Size = new System.Drawing.Size(97, 29);
+            this.txbData.TabIndex = 28;
+            this.txbData.ValidatingType = typeof(System.DateTime);
+            // 
+            // txbPatrimonio
+            // 
+            this.txbPatrimonio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbPatrimonio.Location = new System.Drawing.Point(405, 54);
+            this.txbPatrimonio.Mask = "00000/00000";
+            this.txbPatrimonio.Name = "txbPatrimonio";
+            this.txbPatrimonio.Size = new System.Drawing.Size(108, 29);
+            this.txbPatrimonio.TabIndex = 27;
+            this.txbPatrimonio.ValidatingType = typeof(int);
             // 
             // cbFinalizado
             // 
@@ -113,22 +143,15 @@ namespace Atendimento
             this.lblHora.TabIndex = 24;
             this.lblHora.Text = "Horário:";
             // 
-            // txbHorario
-            // 
-            this.txbHorario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbHorario.Location = new System.Drawing.Point(693, 56);
-            this.txbHorario.Name = "txbHorario";
-            this.txbHorario.Size = new System.Drawing.Size(92, 27);
-            this.txbHorario.TabIndex = 23;
-            // 
             // txbRamal
             // 
             this.txbRamal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbRamal.Location = new System.Drawing.Point(280, 54);
-            this.txbRamal.Mask = "00000-0000";
+            this.txbRamal.Mask = "000000000";
             this.txbRamal.Name = "txbRamal";
-            this.txbRamal.Size = new System.Drawing.Size(99, 29);
+            this.txbRamal.Size = new System.Drawing.Size(97, 29);
             this.txbRamal.TabIndex = 22;
+            this.txbRamal.ValidatingType = typeof(int);
             // 
             // btnCancelar
             // 
@@ -153,14 +176,6 @@ namespace Atendimento
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // txbPatrimonio
-            // 
-            this.txbPatrimonio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbPatrimonio.Location = new System.Drawing.Point(403, 56);
-            this.txbPatrimonio.Name = "txbPatrimonio";
-            this.txbPatrimonio.Size = new System.Drawing.Size(114, 27);
-            this.txbPatrimonio.TabIndex = 16;
             // 
             // cbDept
             // 
@@ -425,14 +440,6 @@ namespace Atendimento
             this.lblData.TabIndex = 11;
             this.lblData.Text = "Data:";
             // 
-            // txbData
-            // 
-            this.txbData.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbData.Location = new System.Drawing.Point(541, 56);
-            this.txbData.Name = "txbData";
-            this.txbData.Size = new System.Drawing.Size(114, 27);
-            this.txbData.TabIndex = 10;
-            // 
             // lblSolicitante
             // 
             this.lblSolicitante.AutoSize = true;
@@ -563,7 +570,6 @@ namespace Atendimento
         private System.Windows.Forms.TextBox txbTecnico;
         private System.Windows.Forms.Label lbl_ID;
         private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.TextBox txbData;
         private System.Windows.Forms.Label lblSolicitante;
         private System.Windows.Forms.TextBox txbSolicitante;
         private System.Windows.Forms.Label label1;
@@ -573,7 +579,6 @@ namespace Atendimento
         private System.Windows.Forms.ComboBox cbDept;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.TextBox txbPatrimonio;
         private System.Windows.Forms.Label lblPatrimonio;
         private System.Windows.Forms.GroupBox gbDescricao;
         private System.Windows.Forms.TextBox txbDescricao;
@@ -581,7 +586,9 @@ namespace Atendimento
         private System.Windows.Forms.TextBox txbSolucao;
         private System.Windows.Forms.MaskedTextBox txbRamal;
         private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.TextBox txbHorario;
         private System.Windows.Forms.CheckBox cbFinalizado;
+        private System.Windows.Forms.MaskedTextBox txbPatrimonio;
+        private System.Windows.Forms.MaskedTextBox txbData;
+        private System.Windows.Forms.MaskedTextBox txbHorario;
     }
 }

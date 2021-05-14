@@ -55,17 +55,17 @@ namespace Atendimento
                 }
             }
         }
-        public TelaAddOS()
+        public TelaAddOS(string nome, string id)
         {
             InitializeComponent();
+
+            user.UserId = id;
+            user.Nome = nome;
         }
 
         // Método de edição:
-        public void modoEditar(string tecnico, string data, string id, string solicitante, string dept, string ramal, string horario, string descricao, string solucao, string patr, bool edicao)
+        public void modoEditar(string tecnico, string data, string id, string solicitante, string dept, string ramal, string horario, string descricao, string solucao, string patr, bool estado, bool edicao)
         {
-            //string tecnico, string data, string id, string solicitante, string dept, string ramal, string horario, string descricao, string solucao, string patr,
-
-
             /// ENVIAR OS DADOS DE EDIÇÃO PARA A PAGINA DE EDIÇÃO.
             txbTecnico.Text = tecnico;
             txbID.Text = id;
@@ -83,10 +83,7 @@ namespace Atendimento
             btnCancelar.Visible = false;
             this.Text = "Editar Ordem de Serviço";
             cbFinalizado.Visible = true;
-        }
-        public void InfoUser(string nome)
-        {
-            user.Nome = nome;
+            cbFinalizado.Checked = estado;
         }
 
         public static string letraRamdom(int tamanho)
@@ -136,16 +133,32 @@ namespace Atendimento
             }
             var resultado = false;
 
-            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null && txbRamal.Text.Length != 6)
+
+            if (txbSolicitante.Text != "" && txbDescricao.Text != "" && txbSolicitante.Text != "" && departValue != null)
             {
-                info.Tecnico = txbTecnico.Text.ToUpper();
-                info.Ramal = txbRamal.Text;
+                info.Tecnico = user.UserId;
+
+                if (txbRamal.Text.Length < 4)
+                {
+                    info.Ramal = "Não tem";
+                }
+                else
+                {
+                    info.Ramal = txbRamal.Text.Replace(" ", "-");
+                }
                 info.Data = txbData.Text;
                 info.Horario = txbHorario.Text;
                 info.Solicitante = txbSolicitante.Text.ToUpper();
                 info.Departamento = cbDept.SelectedItem.ToString().ToUpper();
                 info.Descricao = txbDescricao.Text;
-                info.Patrimonio = txbPatrimonio.Text;
+                if (txbPatrimonio.Text.Length <= 6)
+                {
+                    info.Patrimonio = "Não tem";
+                }
+                else
+                {
+                    info.Patrimonio = txbPatrimonio.Text;
+                }
                 info.Solucao = txbSolucao.Text;
                 info.Id = txbID.Text;
                 if (cbFinalizado.Checked)
@@ -160,13 +173,12 @@ namespace Atendimento
 
             if (modoEdicao)
             {
-                //MessageBox.Show("Modo de edição está ativo!");
-                // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
+                // Passar os dados da ordem de serviço pro .editar e obter o resultado (true ou false):
                 resultado = db.Os_DAO.editar(info);
             }
             else
             {
-                // Passar o funcionário pro .cadastrar e obter o resultado (true ou false):
+                // Passar os dados da ordem de serviço pro .cadastrar e obter o resultado (true ou false):
                 resultado = db.Os_DAO.cadastrar(info);
             }
 
@@ -180,7 +192,7 @@ namespace Atendimento
                 {
                     MessageBox.Show("Funcionário editado com sucesso!");
                 }
-                
+
             }
             else
             {
@@ -194,6 +206,7 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+
             txbID.Text = geraID();
             txbRamal.Text = null;
             txbPatrimonio.Text = null;
