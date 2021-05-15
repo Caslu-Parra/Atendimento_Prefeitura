@@ -112,6 +112,14 @@ namespace Atendimento
         private void TelaAddOS_Load(object sender, EventArgs e)
         {
             this.MaximizeBox = false;
+
+            DataTable dadosTabela = db.Os_DAO.listar("dept", "");
+
+            cbDept.DataSource = dadosTabela;
+            cbDept.DisplayMember = "nomeDept";
+            cbDept.ValueMember = "nomeDept";
+            cbDept.Text = "Selecione a opção";
+
             if (modoEdicao != true)
             {
                 txbID.Text = geraID();
@@ -124,6 +132,7 @@ namespace Atendimento
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+
             var departValue = cbDept.SelectedItem;
             Info info = new Info();
 
@@ -149,7 +158,7 @@ namespace Atendimento
                 info.Data = txbData.Text;
                 info.Horario = txbHorario.Text;
                 info.Solicitante = txbSolicitante.Text.ToUpper();
-                info.Departamento = cbDept.SelectedItem.ToString().ToUpper();
+                info.Departamento = cbDept.SelectedValue.ToString();
                 info.Descricao = txbDescricao.Text;
                 if (txbPatrimonio.Text.Length <= 6)
                 {
@@ -206,6 +215,7 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            
 
             txbID.Text = geraID();
             txbRamal.Text = null;

@@ -29,6 +29,12 @@ namespace Atendimento.db
                  "FROM os " +
                  "INNER JOIN usuarios ON os.tecnico = usuarios.userID;";
             }
+            else if (filtro == "dept" && campoTxb == "")
+            {
+                // Comando SQL à ser exectado.
+                cmd.CommandText = "SELECT nomeDept FROM departamentos ;";
+                 
+            }
             else
             {
                 // Comando SQL à ser exectado.
