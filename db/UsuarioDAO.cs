@@ -12,7 +12,7 @@ namespace Atendimento.db
         public static User logar(User user)
         {
             // Instanciando a classe de conexão ao bando de dados.
-            db.Banco banco = new db.Banco(); 
+            db.Banco banco = new db.Banco();
 
             // Cria uma tabela.
             DataTable tabela = new DataTable();
@@ -49,12 +49,117 @@ namespace Atendimento.db
                     user.Controle = false;
                     return user;
                 }
-        }
+            }
             catch
             {
                 user.Controle = false;
                 return user;
             }
         }
-}
+
+        public static bool addUser(User user)
+        {
+            // Instanciar e conectar ao banco:
+            Banco banco = new Banco();
+
+            try
+            {
+                banco.Conectar();
+                // Criar o objeto SQLiteCommand:
+                var cmd = banco.conexao.CreateCommand();
+
+                // Definir qual comando DML (Insert - Delete - Update) será executado:
+                cmd.CommandText = "INSERT INTO 'main'.'usuarios'" +
+                "('nome', 'senha') " +
+                "VALUES (@nome, @senha);";
+
+                // Definir a substituição dos parametros:
+                cmd.Parameters.AddWithValue("@nome", user.Nome);
+                cmd.Parameters.AddWithValue("@senha", user.Senha);
+
+                // Executar:
+                cmd.ExecuteNonQuery();
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou até aqui é pq deu certo!
+                return true;
+            }
+            catch
+            {
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou aqui é pq deu algum erro!
+                return false;
+            }
+
+        }
+
+        public static bool removeUser(User user)
+        {
+            // Instanciar e conectar ao banco:
+            Banco banco = new Banco();
+
+            try
+            {
+                banco.Conectar();
+                // Criar o objeto SQLiteCommand:
+                var cmd = banco.conexao.CreateCommand();
+
+                // Definir qual comando DML (Insert - Delete - Update) será executado:
+                cmd.CommandText = "DELETE FROM usuarios WHERE userID = @id;";
+
+                cmd.Parameters.AddWithValue("@id", user.UserId);
+
+                // Executar:
+                cmd.ExecuteNonQuery();
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou até aqui é pq deu certo!
+                return true;
+            }
+            catch
+            {
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou aqui é pq deu algum erro!
+                return false;
+            }
+
+        }
+
+        public static bool editUser(User user)
+        {
+            // Instanciar e conectar ao banco:
+            Banco banco = new Banco();
+
+            try
+            {
+                banco.Conectar();
+                // Criar o objeto SQLiteCommand:
+                var cmd = banco.conexao.CreateCommand();
+
+                // Definir qual comando DML (Insert - Delete - Update) será executado:
+                cmd.CommandText = "UPDATE usuarios SET nome = @nome, senha = @senha WHERE userID = @id";
+                
+                // Definir a substituição dos parametros:
+                cmd.Parameters.AddWithValue("@nome", user.Nome);
+                cmd.Parameters.AddWithValue("@senha", user.Senha);
+                cmd.Parameters.AddWithValue("@id", user.UserId);
+                // Executar:
+                cmd.ExecuteNonQuery();
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou até aqui é pq deu certo!
+                return true;
+            }
+            catch
+            {
+                // Desconectar
+                banco.Desconectar();
+                // Se chegou aqui é pq deu algum erro!
+                return false;
+            }
+
+        }
+    }
 }

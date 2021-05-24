@@ -21,7 +21,7 @@ namespace Atendimento.db
             banco.Conectar();
             // Variável de comandos SQL.
             var cmd = banco.conexao.CreateCommand();
-            if (filtro == "*" && campoTxb == "")
+            if (filtro == "os" && campoTxb == "")
             {
                 // Comando SQL à ser exectado.
                 cmd.CommandText = "SELECT os.id, os.estado, usuarios.nome AS 'tecnico', os.data, os.horario, os.solicitante, os.ramal, " +
@@ -33,7 +33,19 @@ namespace Atendimento.db
             {
                 // Comando SQL à ser exectado.
                 cmd.CommandText = "SELECT nomeDept FROM departamentos ;";
-                 
+
+            }
+            else if (filtro == "usuarios" && campoTxb != "")
+            {
+                if (campoTxb != " ")
+                {
+                    // Comando SQL à ser exectado.
+                    cmd.CommandText = "SELECT * FROM usuarios WHERE userID = '" + campoTxb + "';";
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT * FROM usuarios ;";
+                }
             }
             else
             {
@@ -55,6 +67,7 @@ namespace Atendimento.db
                  "WHERE usuarios.nome = '" + campoTxb + "'; ";
                 }
             }
+
             // Executar e obter dadoas de uma consulta.
             SQLiteDataAdapter da = new SQLiteDataAdapter(cmd.CommandText, banco.conexao);
             // Preencher uma "tabela" com o resultado da consulta no banco armazenado em "da".
@@ -63,7 +76,6 @@ namespace Atendimento.db
             banco.Desconectar();
             return tabela;
         }
-
         public static bool cadastrar(Info info)
         {
             // Instanciar e conectar ao banco:
@@ -144,7 +156,6 @@ namespace Atendimento.db
             }
 
         }
-
         public static bool editar(Info info)
         {
             // Instanciar e conectar ao banco:
@@ -165,20 +176,40 @@ namespace Atendimento.db
                 // Criar o objeto SQLiteCommand:
                 var cmd = banco.conexao.CreateCommand();
 
-                // Definir qual comando DML (Insert - Delete - Update) será executado:
-                cmd.CommandText = "UPDATE os SET estado = @estado, tecnico = @tecnico, data = @data, horario = @horario, solicitante = @solicitante, ramal = @ramal, departamento = @departamento, patrimonio = @patrimonio, descricao = @descricao, solucao = @solucao WHERE id = @id";
+                if (info.Departamento == " ")
+                {
+                    // Definir qual comando DML (Insert - Delete - Update) será executado:
+                    cmd.CommandText = "UPDATE os SET estado = @estado, tecnico = @tecnico, data = @data, horario = @horario, solicitante = @solicitante, ramal = @ramal, patrimonio = @patrimonio, descricao = @descricao, solucao = @solucao WHERE id = @id";
 
-                cmd.Parameters.AddWithValue("@id", info.Id);
-                cmd.Parameters.AddWithValue("@estado", estado);
-                cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
-                cmd.Parameters.AddWithValue("@data", info.Data);
-                cmd.Parameters.AddWithValue("@horario", info.Horario);
-                cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
-                cmd.Parameters.AddWithValue("@ramal", info.Ramal);
-                cmd.Parameters.AddWithValue("@departamento", info.Departamento);
-                cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
-                cmd.Parameters.AddWithValue("@descricao", info.Descricao);
-                cmd.Parameters.AddWithValue("@solucao", info.Solucao);
+                    cmd.Parameters.AddWithValue("@id", info.Id);
+                    cmd.Parameters.AddWithValue("@estado", estado);
+                    cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
+                    cmd.Parameters.AddWithValue("@data", info.Data);
+                    cmd.Parameters.AddWithValue("@horario", info.Horario);
+                    cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                    cmd.Parameters.AddWithValue("@ramal", info.Ramal);
+                    cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
+                    cmd.Parameters.AddWithValue("@descricao", info.Descricao);
+                    cmd.Parameters.AddWithValue("@solucao", info.Solucao);
+
+                }
+                else
+                {
+                    // Definir qual comando DML (Insert - Delete - Update) será executado:
+                    cmd.CommandText = "UPDATE os SET estado = @estado, tecnico = @tecnico, data = @data, horario = @horario, solicitante = @solicitante, ramal = @ramal, departamento = @departamento, patrimonio = @patrimonio, descricao = @descricao, solucao = @solucao WHERE id = @id";
+
+                    cmd.Parameters.AddWithValue("@id", info.Id);
+                    cmd.Parameters.AddWithValue("@estado", estado);
+                    cmd.Parameters.AddWithValue("@tecnico", info.Tecnico);
+                    cmd.Parameters.AddWithValue("@data", info.Data);
+                    cmd.Parameters.AddWithValue("@horario", info.Horario);
+                    cmd.Parameters.AddWithValue("@solicitante", info.Solicitante);
+                    cmd.Parameters.AddWithValue("@ramal", info.Ramal);
+                    cmd.Parameters.AddWithValue("@departamento", info.Departamento);
+                    cmd.Parameters.AddWithValue("@patrimonio", info.Patrimonio);
+                    cmd.Parameters.AddWithValue("@descricao", info.Descricao);
+                    cmd.Parameters.AddWithValue("@solucao", info.Solucao);
+                }
 
                 // Executar:
                 cmd.ExecuteNonQuery();

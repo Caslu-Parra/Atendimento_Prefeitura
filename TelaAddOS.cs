@@ -149,7 +149,7 @@ namespace Atendimento
 
                 if (txbRamal.Text.Length < 4)
                 {
-                    info.Ramal = "Não tem";
+                    info.Ramal = "NÃO TEM";
                 }
                 else
                 {
@@ -162,7 +162,7 @@ namespace Atendimento
                 info.Descricao = txbDescricao.Text;
                 if (txbPatrimonio.Text.Length <= 6)
                 {
-                    info.Patrimonio = "Não tem";
+                    info.Patrimonio = "NÃO TEM";
                 }
                 else
                 {
@@ -182,6 +182,10 @@ namespace Atendimento
 
             if (modoEdicao)
             {
+                if (cbDept.SelectedValue.ToString() == "ADMINISTRACAO REGIONAL ARARETAMA")
+                {
+                    info.Departamento = " ";
+                }
                 // Passar os dados da ordem de serviço pro .editar e obter o resultado (true ou false):
                 resultado = db.Os_DAO.editar(info);
             }
@@ -201,6 +205,7 @@ namespace Atendimento
                 {
                     MessageBox.Show("Funcionário editado com sucesso!");
                 }
+                this.Hide();
 
             }
             else

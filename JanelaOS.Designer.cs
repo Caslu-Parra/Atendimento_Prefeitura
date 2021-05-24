@@ -29,8 +29,8 @@ namespace Atendimento
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaOS));
             this.gbFiltro = new System.Windows.Forms.GroupBox();
             this.rBtnDepartamento = new System.Windows.Forms.RadioButton();
@@ -65,7 +65,7 @@ namespace Atendimento
             this.gbFiltro.Controls.Add(this.rBtnTecnico);
             this.gbFiltro.Controls.Add(this.rBtnPatrimonio);
             this.gbFiltro.Font = new System.Drawing.Font("Segoe UI Semibold", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbFiltro.Location = new System.Drawing.Point(211, 2);
+            this.gbFiltro.Location = new System.Drawing.Point(150, 2);
             this.gbFiltro.Name = "gbFiltro";
             this.gbFiltro.Size = new System.Drawing.Size(565, 60);
             this.gbFiltro.TabIndex = 1;
@@ -139,7 +139,7 @@ namespace Atendimento
             this.txbPesquisa.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txbPesquisa.Location = new System.Drawing.Point(12, 21);
             this.txbPesquisa.Name = "txbPesquisa";
-            this.txbPesquisa.Size = new System.Drawing.Size(137, 33);
+            this.txbPesquisa.Size = new System.Drawing.Size(197, 33);
             this.txbPesquisa.TabIndex = 2;
             this.txbPesquisa.TextChanged += new System.EventHandler(this.txbPesquisa_TextChanged);
             // 
@@ -147,8 +147,8 @@ namespace Atendimento
             // 
             this.dgvOSList.AllowUserToAddRows = false;
             this.dgvOSList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOSList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOSList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOSList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvOSList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -157,8 +157,8 @@ namespace Atendimento
             this.dgvOSList.Location = new System.Drawing.Point(12, 65);
             this.dgvOSList.Name = "dgvOSList";
             this.dgvOSList.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvOSList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvOSList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOSList.RowTemplate.Height = 25;
             this.dgvOSList.Size = new System.Drawing.Size(991, 393);
             this.dgvOSList.TabIndex = 4;
@@ -180,9 +180,9 @@ namespace Atendimento
             // 
             this.groupBox1.Controls.Add(this.txbPesquisa);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(849, 2);
+            this.groupBox1.Location = new System.Drawing.Point(788, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(155, 60);
+            this.groupBox1.Size = new System.Drawing.Size(215, 60);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa";
@@ -197,6 +197,7 @@ namespace Atendimento
             this.btnAddUser.Size = new System.Drawing.Size(55, 40);
             this.btnAddUser.TabIndex = 12;
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // gbUserAdd
             // 
@@ -227,7 +228,7 @@ namespace Atendimento
             this.gbLimpaBusca.Controls.Add(this.btnRecarregar);
             this.gbLimpaBusca.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.gbLimpaBusca.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gbLimpaBusca.Location = new System.Drawing.Point(782, 2);
+            this.gbLimpaBusca.Location = new System.Drawing.Point(721, 2);
             this.gbLimpaBusca.Name = "gbLimpaBusca";
             this.gbLimpaBusca.Size = new System.Drawing.Size(61, 60);
             this.gbLimpaBusca.TabIndex = 15;
@@ -259,6 +260,7 @@ namespace Atendimento
             this.Controls.Add(this.gbFiltro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "JanelaOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JanelaOS";

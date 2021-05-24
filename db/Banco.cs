@@ -59,7 +59,7 @@ namespace Atendimento.db
                     {
                         var cmd = this.conexao.CreateCommand();
                         cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
-                        "nome" + " TEXT NOT NULL," +
+                        "nome" + " TEXT NOT NULL UNIQUE," +
                         "senha" + " TEXT NOT NULL," +
                         "userID" + "  INTEGER NOT NULL," +
                         "PRIMARY KEY('userID' AUTOINCREMENT));";
