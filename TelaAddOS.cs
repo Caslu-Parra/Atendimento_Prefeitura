@@ -19,12 +19,20 @@ namespace Atendimento
             if (opcao == "minuto")
             {
                 var minuto = data.Minute.ToString();
-
-                if (minuto.Length == 1)
+                var hora = data.Hour.ToString();
+                if (minuto.Length == 1 && hora.Length == 1) // Minuto e Hora na casa da unidade
+                {
+                    return "0" + data.Hour + ":0" + data.Minute;
+                }
+                else if (minuto.Length == 1) // Somente o minuto na casa da unidade.
                 {
                     return data.Hour + ":0" + data.Minute;
                 }
-                else
+                else if (hora.Length == 1) // Somente a hora na casa da unidade.
+                {
+                    return "0" + data.Hour + ":" + data.Minute;
+                }
+                else // Hora e Minuto na casa da dezena;
                 {
                     return data.Hour + ":" + data.Minute;
                 }
@@ -33,19 +41,19 @@ namespace Atendimento
             {
                 var dia = data.Day.ToString();
                 var mes = data.Month.ToString();
-                if (dia.Length == 1 && mes.Length == 1)
+                if (dia.Length == 1 && mes.Length == 1)  // Dia e Mes na casa da unidade
                 {
                     return "0" + data.Day.ToString() + "/0" + data.Month.ToString() + '/' + data.Year.ToString();
                 }
-                else if (dia.Length == 1)
+                else if (dia.Length == 1) // Dia na casa da unidade
                 {
                     return "0" + data.Day.ToString() + "/" + data.Month.ToString() + '/' + data.Year.ToString();
                 }
-                else if (mes.Length == 1)
+                else if (mes.Length == 1) // Mes na casa da unidade
                 {
                     return data.Day.ToString() + "/0" + data.Month.ToString() + '/' + data.Year.ToString();
                 }
-                else
+                else // Minuto e Hora na casa da dezena;
                 {
                     return data.Day.ToString() + '/' + data.Month.ToString() + '/' + data.Year.ToString();
                 }
