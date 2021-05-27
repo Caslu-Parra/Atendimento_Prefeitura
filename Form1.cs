@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Atendimento
@@ -38,7 +33,7 @@ namespace Atendimento
             {
                 MessageBox.Show("Usuário e/ou senha incorretos!");
             }
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

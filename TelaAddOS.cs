@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Atendimento
@@ -15,7 +11,7 @@ namespace Atendimento
         DateTime data;
         User user = new User();
         bool modoEdicao = false;
-
+        string departamento;
 
         public string Data(string opcao)
         {
@@ -55,12 +51,13 @@ namespace Atendimento
                 }
             }
         }
-        public TelaAddOS(string nome, string id)
+        public TelaAddOS(string nome, string id, string dept)
         {
             InitializeComponent();
 
             user.UserId = id;
             user.Nome = nome;
+            departamento = dept;
         }
 
         // Método de edição:
@@ -74,8 +71,6 @@ namespace Atendimento
             txbSolicitante.Text = solicitante;
             txbDescricao.Text = descricao;
             txbSolucao.Text = solucao;
-            cbDept.SelectedItem = null;
-            cbDept.Text = dept;
             txbData.Text = data;
             txbHorario.Text = horario;
             modoEdicao = edicao;
@@ -118,10 +113,13 @@ namespace Atendimento
             cbDept.DataSource = dadosTabela;
             cbDept.DisplayMember = "nomeDept";
             cbDept.ValueMember = "nomeDept";
-            cbDept.Text = "Selecione a opção";
+            cbDept.SelectedValue = departamento;
+            cbDept.Text = departamento;
 
             if (modoEdicao != true)
             {
+                cbDept.Text = "Selecione a opção";
+                cbDept.SelectedItem = null;
                 txbID.Text = geraID();
                 txbTecnico.Text = user.Nome;
                 txbData.Text = Data("data");
@@ -150,6 +148,10 @@ namespace Atendimento
                 if (txbRamal.Text.Length < 4)
                 {
                     info.Ramal = "NÃO TEM";
+                }
+                else if (txbRamal.Text.Length == 9)
+                {
+                    info.Ramal = txbRamal.Text.Insert(5, "-");
                 }
                 else
                 {
@@ -199,11 +201,11 @@ namespace Atendimento
             {
                 if (modoEdicao == false)
                 {
-                    MessageBox.Show("Funcionário cadastrado com sucesso!");
+                    MessageBox.Show("Ordem de serviço cadastrada com sucesso!");
                 }
                 else
                 {
-                    MessageBox.Show("Funcionário editado com sucesso!");
+                    MessageBox.Show("Ordem de serviço editada com sucesso!");
                 }
                 this.Hide();
 
@@ -220,8 +222,6 @@ namespace Atendimento
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
-
             txbID.Text = geraID();
             txbRamal.Text = null;
             txbPatrimonio.Text = null;

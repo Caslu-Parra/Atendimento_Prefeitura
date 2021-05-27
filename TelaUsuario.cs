@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Atendimento
@@ -72,7 +68,8 @@ namespace Atendimento
                 {
                     MessageBox.Show("Não foi possivel adicionar o usuário, verifique se nome é válido.");
                 }
-            }else
+            }
+            else
             {
                 MessageBox.Show("Campos vazios, verifique-os!");
             }
@@ -117,7 +114,7 @@ namespace Atendimento
                     }
                 }
             }
-            else 
+            else
             { MessageBox.Show("Selecione um usuário!"); }
         }
 
@@ -144,8 +141,9 @@ namespace Atendimento
                         MessageBox.Show("Não foi possivel editar o usuário, verifique se os campos são válidos.");
                     }
                 }
-                else { MessageBox.Show("Campos vazios, verifique-os!");  }
-            } else
+                else { MessageBox.Show("Campos vazios, verifique-os!"); }
+            }
+            else
             { MessageBox.Show("Selecione um usuário!"); }
         }
     }

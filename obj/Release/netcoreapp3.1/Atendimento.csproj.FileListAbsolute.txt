@@ -34,4 +34,3 @@ C:\lp_dir\Projetos\Atendimento_Prefeitura\obj\Release\netcoreapp3.1\Atendimento.
 C:\lp_dir\Projetos\Atendimento_Prefeitura\obj\Release\netcoreapp3.1\Atendimento.dll
 C:\lp_dir\Projetos\Atendimento_Prefeitura\obj\Release\netcoreapp3.1\Atendimento.pdb
 C:\lp_dir\Projetos\Atendimento_Prefeitura\obj\Release\netcoreapp3.1\Atendimento.genruntimeconfig.cache
-C:\lp_dir\Projetos\Atendimento_Prefeitura\obj\Release\netcoreapp3.1\Atendimento.csprojAssemblyReference.cache

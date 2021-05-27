@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Atendimento
@@ -64,22 +60,21 @@ namespace Atendimento
 
         private void JanelaOS_Load(object sender, EventArgs e)
         {
-            atualizaTabela("os",""); // Preenche a tabela assim que a tela for carregada.
+            atualizaTabela("os", ""); // Preenche a tabela assim que a tela for carregada.
             // Define estilo para as linhas da tabela.
             dgvOSList.DefaultCellStyle.ForeColor = Color.Black;
             dgvOSList.DefaultCellStyle.BackColor = Color.AliceBlue;
         }
-        
+
         // Método que invoca a janela de adicionar Ordem de Serviço.
         private void btnNovo_Click(object sender, EventArgs e)
         {
             this.Hide();
             // Instanciamos o obj JanelaAddOS e passamos valores a seu construtor.
-            TelaAddOS janelaAddOS = new TelaAddOS(user.Nome, user.UserId);
+            TelaAddOS janelaAddOS = new TelaAddOS(user.Nome, user.UserId, "");
             janelaAddOS.ShowDialog();
             atualizaTabela("os", "");
             this.Show();
-
         }
 
         // Método que limpa/recarrega os filtros de busca da tabela.
@@ -117,9 +112,10 @@ namespace Atendimento
                 var linha = dt.Rows[0];
 
                 var solucao = linha.Field<string>("solucao");
-                if (solucao == null) {
+                if (solucao == null)
+                {
                     solucao = "";
-                } 
+                }
 
                 // Atribuicao dos campos da Ordem para os atribuitos do obj 'info'.
                 info.Tecnico = linha.Field<string>("tecnico").ToString();
@@ -133,12 +129,13 @@ namespace Atendimento
                 info.Solucao = solucao;
                 info.Id = linha.Field<string>("id").ToString();
 
-                if (linha.Field<string>("estado") == "Finalizado") {
+                if (linha.Field<string>("estado") == "Finalizado")
+                {
                     info.Estado = true;
                 }
 
                 // ENVIA OS DADOS DE EDIÇÃO PARA A PAGINA DE EDIÇÃO.
-                TelaAddOS editar = new TelaAddOS(user.Nome, user.UserId);
+                TelaAddOS editar = new TelaAddOS(user.Nome, user.UserId, info.Departamento);
                 editar.modoEditar(info.Tecnico, info.Data, info.Id, info.Solicitante, info.Departamento, info.Ramal, info.Horario, info.Descricao, info.Solucao, info.Patrimonio, info.Estado, true);
                 this.Hide();
                 editar.ShowDialog();
@@ -163,7 +160,7 @@ namespace Atendimento
             {
                 MessageBox.Show("Você não tem permissão para acessar, contate o administrador!");
             }
-            
+
         }
     }
 }

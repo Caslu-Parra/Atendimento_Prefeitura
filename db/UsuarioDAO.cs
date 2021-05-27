@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Atendimento.db
 {
     class UsuarioDAO
     {
+        // Método de verificação de credênciais.
         public static User logar(User user)
         {
             // Instanciando a classe de conexão ao bando de dados.
             db.Banco banco = new db.Banco();
 
-            // Cria uma tabela.
+            // Cria uma variável do tipo tabela, e os valores serão manipulados abaixo.
             DataTable tabela = new DataTable();
 
             try
             {
                 DataTable query = new DataTable();
                 banco.Conectar();
+
                 // Criar o objeto SQLiteCommand:
                 var cmd = banco.conexao.CreateCommand();
                 // Definir qual comando DQL será executado:
@@ -34,7 +34,6 @@ namespace Atendimento.db
 
                 var linha = query.Rows[0];
 
-                //MessageBox.Show("Nome = "+ linha.Field<string>("nome")+ " Senha= "+ linha.Field<string>("senha"));
                 if (linha.Field<string>("nome") == user.Nome && linha.Field<string>("senha") == user.Senha)
                 {
                     /* Se não houver erro quer dizer que já há alguma os com o ID informado, portanto,
@@ -57,6 +56,7 @@ namespace Atendimento.db
             }
         }
 
+        // Método de cadastro de usuário.
         public static bool addUser(User user)
         {
             // Instanciar e conectar ao banco:
@@ -93,7 +93,7 @@ namespace Atendimento.db
             }
 
         }
-
+        // Método de remover usuários.
         public static bool removeUser(User user)
         {
             // Instanciar e conectar ao banco:
@@ -126,7 +126,7 @@ namespace Atendimento.db
             }
 
         }
-
+        // Metodo de edição de usuários.
         public static bool editUser(User user)
         {
             // Instanciar e conectar ao banco:
@@ -140,7 +140,7 @@ namespace Atendimento.db
 
                 // Definir qual comando DML (Insert - Delete - Update) será executado:
                 cmd.CommandText = "UPDATE usuarios SET nome = @nome, senha = @senha WHERE userID = @id";
-                
+
                 // Definir a substituição dos parametros:
                 cmd.Parameters.AddWithValue("@nome", user.Nome);
                 cmd.Parameters.AddWithValue("@senha", user.Senha);

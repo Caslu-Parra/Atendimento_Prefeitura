@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Atendimento.db
 {
@@ -32,7 +28,7 @@ namespace Atendimento.db
             else if (filtro == "dept" && campoTxb == "")
             {
                 // Comando SQL à ser exectado.
-                cmd.CommandText = "SELECT nomeDept FROM departamentos ;";
+                cmd.CommandText = "SELECT * FROM  departamentos ORDER BY  nomeDept ASC ;";
 
             }
             else if (filtro == "usuarios" && campoTxb != "")

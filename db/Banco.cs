@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Atendimento.db
 {
@@ -13,11 +13,13 @@ namespace Atendimento.db
         // Construtor de conexão.
         public Banco()
         {
+            string ip = "10.0.1.230";
             // Aponta onde está o arquivo ".sql".
-            conexao = new SQLiteConnection("Data Source=C:/Users/Public/BDE-OS/banco.sqlite3");
+            conexao = new SQLiteConnection(@"Data Source=\\" + ip + @"\Arquivos\Programas\Ordem de Servico\Banco de Dados\banco.sqlite3", true);
 
             // Definir o caminho
-            string caminho = "C:/Users/Public/BDE-OS";
+            //string caminho = "C:/Users/Public/BDE-OS/";
+            string caminho = @"\\"+ ip + @"\Arquivos\Programas\Ordem de Servico\Banco de Dados";
 
             // Verificar se o arquivo banco.sqlite3 NÃO existe:
             if (!File.Exists(caminho + "/banco.sqlite3"))
@@ -32,7 +34,7 @@ namespace Atendimento.db
                 // Será executado apenas na primeira vez que o código rodar:
                 // Conectar com o banco:
                 this.Conectar();
-                for (var i = 1; i <= 2; i++)
+                for (var i = 1; i <= 3; i++)
                 {
                     if (i == 1)
                     {
@@ -55,7 +57,7 @@ namespace Atendimento.db
                         // Executar o comando:
                         cmd.ExecuteNonQuery();
                     }
-                    else
+                    else if (i == 2)
                     {
                         var cmd = this.conexao.CreateCommand();
                         cmd.CommandText = "CREATE TABLE " + "usuarios" + "(" +
@@ -67,14 +69,26 @@ namespace Atendimento.db
                         // Executar o comando:
                         cmd.ExecuteNonQuery();
                     }
+                    else
+                    {
+                        var cmd = this.conexao.CreateCommand();
+                        cmd.CommandText = "CREATE TABLE " + "departamentos" + "(" +
+                        "idDept" + " INTEGER NOT NULL," +
+                        "nomeDept" + " TEXT NOT NULL," +
+                        "PRIMARY KEY('idDept' AUTOINCREMENT));";
+
+                        // Executar o comando:
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 // Desconectar:
                 this.Desconectar();
             }
+
         }
 
 
-        // Classe para conectar.
+        // Método para conectar.
         public void Conectar()
         {
             // Se conexão não estiver Open irá conectar, caso contrário não irá.
@@ -85,7 +99,7 @@ namespace Atendimento.db
         }
 
 
-        // Classe para desconectar.
+        // Método para desconectar.
         public void Desconectar()
         {
             // Se conexão estiver Open irá desconectar.
