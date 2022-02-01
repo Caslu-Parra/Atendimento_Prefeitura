@@ -5,6 +5,5 @@
  
 
 ### Importante ###
- Este programa foi projetado para funcionar em uma rede especifica. Caso você tenha interesse de testa-ló é necessário que você realize alguns ajustes no código fonte.
- Acesse e siga os passos -> https://drive.google.com/file/d/1ebAGTNenYx-QErtcYydQ-PaFlL7Ebf_D/view?usp=sharing 
+ Este programa foi projetado para funcionar em uma rede especifica. Caso você tenha interesse de testa-ló é necessário que você realize alguns ajustes no código fonte dentro do arquivo db/Banco.cs e apontar o endereço onde o arquivo *.sqlite3 se encostra no seu ambiente.
     
